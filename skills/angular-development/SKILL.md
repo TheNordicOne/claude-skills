@@ -66,6 +66,19 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use `private` for internal members not used in the template
 - Apply `readonly` to properties initialized by Angular (inputs, queries)
 
+### Self-Closing Tags
+- **Always use self-closing tags** for components and elements without content
+
+```html
+<!-- BAD -->
+<app-icon></app-icon>
+<input type="text"></input>
+
+<!-- GOOD -->
+<app-icon />
+<input type="text" />
+```
+
 ### Bindings
 - **DO NOT use** `ngClass`, use `class` bindings instead
 - **DO NOT use** `ngStyle`, use `style` bindings instead
@@ -240,6 +253,7 @@ export class DataService {
 - Use `computed()` for derived state
 - Use `signal()` for local state
 - Use native control flow (`@if`, `@for`, `@switch`)
+- Use self-closing tags for elements without content
 - Use `class` and `style` bindings
 - Use `inject()` function for dependency injection
 - Set `ChangeDetectionStrategy.OnPush`

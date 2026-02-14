@@ -225,6 +225,30 @@ function add(a: number, b: number) {
 }
 ```
 
+## Enums
+
+### No Enums — Use `as const` Objects
+
+Enums are **forbidden**. Use a plain object with `as const` instead. This gives you the same type safety with better tree-shaking, no runtime surprises, and full compatibility with `typeof` and `keyof`.
+
+```typescript
+// BAD - enum
+enum Status {
+  Active = 'active',
+  Inactive = 'inactive',
+  Pending = 'pending',
+}
+
+// GOOD - as const object
+const Status = {
+  Active: 'active',
+  Inactive: 'inactive',
+  Pending: 'pending',
+} as const;
+
+type Status = (typeof Status)[keyof typeof Status];
+```
+
 ## Naming Conventions
 
 ### Be Descriptive
