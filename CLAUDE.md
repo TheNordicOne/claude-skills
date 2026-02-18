@@ -4,12 +4,7 @@ This project follows the [Agent Skills](https://agentskills.io/specification) pa
 
 ## Agent Skills
 
-All coding guidelines are defined in the `skills/` directory:
-
-- **[TypeScript](skills/typescript/SKILL.md)** - Code style, type safety, control flow
-- **[Angular Development](skills/angular-development/SKILL.md)** - Components, signals, templates, services
-- **[CSS Modern](skills/css-modern/SKILL.md)** - Logical properties, Baseline 2024, Grid layouts
-- **[Component Tests](skills/component-tests/SKILL.md)** - Test host pattern, Angular Testing Library
+All coding guidelines are defined in the `skills/` directory. ALWAYS check them!
 
 ## Workflow
 
