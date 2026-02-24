@@ -1,10 +1,14 @@
 # Claude Instructions
 
-This project follows the [Agent Skills](https://agentskills.io/specification) pattern for modular, reusable coding guidelines.
+IMPORTANT: Before starting ANY task, you MUST first discover and activate relevant skills. This is a mandatory first step — do NOT skip it, do NOT wait to be reminded.
 
-## Agent Skills
+This project follows the [Agent Skills](https://agentskills.io/specification) pattern for modular, reusable coding guidelines. All coding guidelines are defined as skill files in the `skills/` directory.
 
-All coding guidelines are defined in the `skills/` directory. ALWAYS check them!
+Follow the progressive disclosure pattern from the spec:
+1. **Discover**: List all skill directories in `skills/`
+2. **Triage**: Read only the YAML frontmatter (`name` and `description`) of each `SKILL.md` to decide relevance
+3. **Activate**: Load the full body of relevant skills only
+4. **Resources**: Load files from `references/`, `scripts/`, or `assets/` only when needed
 
 ## Workflow
 
