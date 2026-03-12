@@ -109,22 +109,22 @@ The same pattern applies to all directional properties — margin, padding, bord
 
 ### Quick Reference: Logical Properties
 
-| Physical | Logical |
-|:---------|:--------|
-| `top` / `bottom` | `inset-block-start` / `inset-block-end` |
-| `left` / `right` | `inset-inline-start` / `inset-inline-end` |
-| `margin-top` / `margin-bottom` | `margin-block-start` / `margin-block-end` |
-| `margin-left` / `margin-right` | `margin-inline-start` / `margin-inline-end` |
-| `padding-top` / `padding-bottom` | `padding-block-start` / `padding-block-end` |
+| Physical                         | Logical                                       |
+|:---------------------------------|:----------------------------------------------|
+| `top` / `bottom`                 | `inset-block-start` / `inset-block-end`       |
+| `left` / `right`                 | `inset-inline-start` / `inset-inline-end`     |
+| `margin-top` / `margin-bottom`   | `margin-block-start` / `margin-block-end`     |
+| `margin-left` / `margin-right`   | `margin-inline-start` / `margin-inline-end`   |
+| `padding-top` / `padding-bottom` | `padding-block-start` / `padding-block-end`   |
 | `padding-left` / `padding-right` | `padding-inline-start` / `padding-inline-end` |
-| `border-top` / `border-bottom` | `border-block-start` / `border-block-end` |
-| `border-left` / `border-right` | `border-inline-start` / `border-inline-end` |
-| `border-top-left-radius` | `border-start-start-radius` |
-| `border-top-right-radius` | `border-start-end-radius` |
-| `border-bottom-left-radius` | `border-end-start-radius` |
-| `border-bottom-right-radius` | `border-end-end-radius` |
-| `width` / `height` | `inline-size` / `block-size` |
-| `max-width` / `min-height` | `max-inline-size` / `min-block-size` |
+| `border-top` / `border-bottom`   | `border-block-start` / `border-block-end`     |
+| `border-left` / `border-right`   | `border-inline-start` / `border-inline-end`   |
+| `border-top-left-radius`         | `border-start-start-radius`                   |
+| `border-top-right-radius`        | `border-start-end-radius`                     |
+| `border-bottom-left-radius`      | `border-end-start-radius`                     |
+| `border-bottom-right-radius`     | `border-end-end-radius`                       |
+| `width` / `height`               | `inline-size` / `block-size`                  |
+| `max-width` / `min-height`       | `max-inline-size` / `min-block-size`          |
 
 ## Modern CSS Features (Baseline 2024)
 
@@ -232,32 +232,51 @@ Responsive sizing based on container:
 - `cqmin` - smaller of cqi or cqb
 - `cqmax` - larger of cqi or cqb
 
-### color-mix()
+### Relative Color Syntax
 
-Dynamic color manipulation:
+**CRITICAL:** Use relative color syntax (`oklch(from ...)`) instead of `color-mix()` for all dynamic color manipulation. Relative colors give you full control over each color channel individually, producing more predictable and maintainable results.
 
 ```scss
 .button {
   background: var(--primary-color);
   
   &:hover {
-    // Mix with black for darker shade
-    background: color-mix(in oklch, var(--primary-color), black 20%);
+    // Darken by reducing lightness
+    background: oklch(from var(--primary-color) calc(l - 0.1) c h);
   }
   
   &:disabled {
-    // Mix with white for lighter, washed out version
-    background: color-mix(in oklch, var(--primary-color), white 60%);
+    // Wash out by reducing chroma and adding transparency
+    background: oklch(from var(--primary-color) calc(l + 0.2) calc(c * 0.3) h / 0.6);
   }
 }
 
 // Create color variations
 .badge {
-  --badge-bg: color-mix(in oklch, var(--info-color), white 80%);
-  --badge-text: color-mix(in oklch, var(--info-color), black 30%);
+  // Light tinted background — high lightness, low chroma
+  --badge-bg: oklch(from var(--info-color) 0.95 calc(c * 0.3) h);
+  // Darker text — reduced lightness
+  --badge-text: oklch(from var(--info-color) calc(l - 0.2) c h);
   
   background: var(--badge-bg);
   color: var(--badge-text);
+}
+```
+
+**Why relative colors over `color-mix()`?**
+- Fine-grained control: adjust lightness, chroma, and hue independently
+- More predictable: `color-mix()` blends all channels at once, which can shift hue unexpectedly
+- Composable: chain `calc()` on individual channels for precise design-token variations
+
+```scss
+// ❌ AVOID - color-mix() for color manipulation
+.element {
+  background: color-mix(in oklch, var(--primary-color), black 20%);
+}
+
+// ✅ CORRECT - Relative color syntax
+.element {
+  background: oklch(from var(--primary-color) calc(l - 0.1) c h);
 }
 ```
 
@@ -354,9 +373,9 @@ Perceptually uniform colors:
 - `h` (Hue): 0-360 degrees
 - `alpha`: 0-1 opacity (optional)
 
-### Relative Color Syntax
+### Relative Color Syntax — Advanced Transforms
 
-Transform colors dynamically:
+More advanced channel manipulations:
 
 ```scss
 .element {
@@ -371,11 +390,14 @@ Transform colors dynamically:
   // Desaturate
   --muted: oklch(from var(--base-color) l calc(c * 0.5) h);
   
-  // Change hue
+  // Change hue (complementary)
   --shifted: oklch(from var(--base-color) l c calc(h + 180));
   
   // Add transparency
   --transparent: oklch(from var(--base-color) l c h / 0.5);
+  
+  // Combine multiple adjustments
+  --muted-light: oklch(from var(--base-color) calc(l + 0.15) calc(c * 0.4) h);
 }
 ```
 
@@ -490,10 +512,9 @@ OKLCH provides perceptually uniform color adjustments:
 - ✅ CSS Nesting
 - ✅ Container Queries (`@container`)
 - ✅ Container Query Units (`cqi`, `cqb`, etc.)
-- ✅ `color-mix()`
+- ✅ Relative color syntax (`oklch(from ...)`)
 - ✅ `subgrid`
 - ✅ `oklch()` color space
-- ✅ Relative color syntax
 - ✅ Cascade Layers (`@layer`)
 - ✅ `text-wrap: balance` / `pretty`
 
