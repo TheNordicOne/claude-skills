@@ -122,6 +122,16 @@ export class MyComponent {
 }
 ```
 
+## Reusable Components
+
+**CRITICAL:** When implementing repeating UI patterns, always extract them into reusable components in `@swo/ui` (`libs/ui/src/lib/components/`) rather than inlining the structure.
+
+- New components go in `libs/ui/src/lib/components/<name>/`
+- Export from `libs/ui/src/lib/components/index.ts`
+- Follow the existing pattern: separate `.ts`, `.html`, `.scss` files
+- Use `ChangeDetectionStrategy.OnPush`
+- Use BEM class naming: `.swo-<name>__<element>`
+
 ## State Management
 
 ### Signal Rules
