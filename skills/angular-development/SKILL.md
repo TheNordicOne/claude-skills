@@ -67,7 +67,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Apply `readonly` to properties initialized by Angular (inputs, queries)
 
 ### Self-Closing Tags
-- **Always use self-closing tags** for components and elements without content
+- **Always use self-closing tags** for components if possible
 
 ```html
 <!-- BAD -->
