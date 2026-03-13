@@ -497,6 +497,23 @@ OKLCH provides perceptually uniform color adjustments:
 }
 ```
 
+### Never Use `margin: auto` to Push Elements
+
+Do not use `margin-inline-start: auto` or similar `margin: auto` patterns to push elements to one side. Use proper CSS Grid or Flexbox layout with explicit placement instead.
+
+```scss
+// ❌ WRONG - margin trick to push element to the end
+.action-button {
+  margin-inline-start: auto;
+}
+
+// ✅ CORRECT - proper layout on the parent
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+```
+
 ## Quick Reference
 
 ### Logical Property Axes
