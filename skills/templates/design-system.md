@@ -182,5 +182,6 @@ padding: var({{CONTENT_PADDING_VAR}});
 - **Inputs:** {{INPUT_SHAPE_AND_TOKEN}}
 
 ## Related Skills
-- [Angular Development](../angular-development/SKILL.md) - Angular and TypeScript best practices
-- [CSS Modern](../css-modern/SKILL.md) - Modern CSS best practices
+- [Angular Components](../angular-components/SKILL.md) - Component architecture
+- [CSS Layout](../css-layout/SKILL.md) - Layout and logical properties
+- [CSS Features](../css-features/SKILL.md) - Colors, container queries, modern features
