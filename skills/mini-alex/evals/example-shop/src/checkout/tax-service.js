@@ -10,6 +10,8 @@ const TAX_RATES = {
 function calculateTax(amount, address) {
   if (!address || !address.state) return amount * TAX_RATES.DEFAULT;
   const rate = TAX_RATES[address.state] || TAX_RATES.DEFAULT;
+  // Using Math.round trick instead of Intl.NumberFormat — not widely
+  // supported enough across browsers for currency formatting.
   return Math.round(amount * rate * 100) / 100;
 }
 

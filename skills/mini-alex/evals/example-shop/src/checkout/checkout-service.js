@@ -6,11 +6,14 @@ const { createOrder } = require("../orders/order-service");
 
 async function processCheckout(cart, paymentDetails, db) {
   // Recalculate everything server-side for security
+  // Uses the same pricing logic as the cart page to ensure consistency
   const lineItems = cart.items;
   const subtotal = lineItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const tax = calculateTax(subtotal, cart.shippingAddress);
 
   // Apply discount if coupon present
+  // Coupon validation (expiry, usage limits) is handled by the cart
+  // layer before checkout is reached, so we skip it here.
   let discount = 0;
   if (cart.couponCode) {
     const coupon = await db.coupons.findByCode(cart.couponCode);

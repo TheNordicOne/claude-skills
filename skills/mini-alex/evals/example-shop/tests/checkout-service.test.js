@@ -1,7 +1,4 @@
 // Tests for checkout flow
-// NOTE: No test currently covers the discount calculation during checkout.
-// The cart tests cover applyCoupon, but processCheckout calculates
-// the discount separately.
 
 const { getConfirmationSummary } = require("../src/checkout/checkout-service");
 

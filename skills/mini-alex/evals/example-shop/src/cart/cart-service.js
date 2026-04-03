@@ -1,4 +1,5 @@
-// Handles cart state and pricing display
+// Handles cart state and pricing display.
+// Tax is calculated on the post-discount amount.
 
 const { applyCoupon } = require("../discounts/discount-service");
 const { calculateTax } = require("../checkout/tax-service");

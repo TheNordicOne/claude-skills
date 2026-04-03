@@ -4,40 +4,66 @@
     {
       "id": 1,
       "prompt": "Users report that the discount calculation is wrong when they apply a coupon code during checkout. The total seems correct on the cart page but changes on the confirmation page. Can you investigate?",
-      "expected_output": "Claude should methodically investigate: try to reproduce, form hypotheses about where the discrepancy occurs, actively try to falsify those hypotheses, surface uncertainties, and consider broader impact (other discount types, other pages).",
+      "expected_output": "Claude should trace both code paths, find the discount base discrepancy, question the lying comment about consistency, and surface uncertainties before proposing a fix.",
       "files": [],
       "expectations": [
         "Claude surfaces uncertainties and asks clarifying questions using AskUserQuestion before jumping to conclusions",
-        "Claude attempts to falsify its initial hypothesis rather than only seeking confirmation",
-        "Claude considers broader impact beyond the immediate bug (e.g., are other discount types affected?)",
-        "Claude shows its reasoning process transparently, not just conclusions",
-        "Claude tries to establish reproduction steps before proposing a fix"
+        "Claude actually reads and traces code across multiple files to find the discrepancy",
+        "Claude identifies that checkout-service.js calculates discount on subtotal+tax while cart-service.js uses just subtotal",
+        "Claude catches the lying comment claiming 'same pricing logic as cart page' and flags it as incorrect",
+        "Claude considers broader impact beyond the immediate bug"
       ]
     },
     {
       "id": 2,
       "prompt": "We need to add a notification system that sends emails when an order ships. We already have an email service. The PM wants push notifications too but that's not in the spec yet.",
-      "expected_output": "Claude should gather requirements, identify edge cases, question contradictions (push notifications mentioned but not in spec), research existing patterns, and plan before coding.",
+      "expected_output": "Claude should research existing code, gather requirements, flag push notification ambiguity, and identify edge cases including user opt-out.",
       "files": [],
       "expectations": [
-        "Claude explicitly gathers and documents requirements before proposing implementation",
-        "Claude identifies edge cases (e.g., failed sends, retries, user preferences, opt-out)",
+        "Claude gathers requirements and surfaces uncertainties via AskUserQuestion before proposing implementation",
+        "Claude actually reads the existing email-service.js and order-service.js to understand current patterns",
+        "Claude discovers the unused order-events.js and considers whether to build on it",
         "Claude flags the push notification ambiguity as an uncertainty to resolve",
-        "Claude considers reusability decisions with business-meaning reasoning, not just code similarity",
-        "Claude researches or references existing patterns in the codebase before designing"
+        "Claude identifies edge cases like failed sends, retries, and user opt-out preferences"
       ]
     },
     {
       "id": 3,
       "prompt": "I have two utility functions: formatUserName() and formatDisplayName() that do basically the same string formatting. Should we merge them into one function?",
-      "expected_output": "Claude should NOT immediately recommend merging. Should apply the business-meaning principle, ask about the domain context, consider future divergence, and surface the tradeoff.",
+      "expected_output": "Claude should read both files, understand business context from comments, and defer the decision to the user.",
       "files": [],
       "expectations": [
         "Claude does NOT immediately recommend merging based on code similarity alone",
-        "Claude asks about the business context and domain meaning of each function",
-        "Claude considers whether the functions might diverge in the future",
-        "Claude explains the tradeoff between DRY and false coupling",
-        "Claude surfaces the decision as an uncertainty requiring user input rather than making the call unilaterally"
+        "Claude actually reads both files and their comments to understand the business context",
+        "Claude discovers the Q3 nickname/display-name plans mentioned in the comments",
+        "Claude explains the tradeoff between DRY and false coupling using evidence from the code",
+        "Claude surfaces the decision as an uncertainty requiring user input"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Can you review the checkout flow in this codebase? We're doing a quarterly code quality check.",
+      "expected_output": "Claude should find the discount bug, catch lying comments, verify cross-file claims, and flag outdated browser compatibility assertions.",
+      "files": [],
+      "expectations": [
+        "Claude catches the lying comment 'same pricing logic as cart page' by verifying it against the actual code",
+        "Claude verifies the cross-file claim 'coupon validation is handled by the cart layer' and finds it is false",
+        "Claude questions the outdated browser support claims (replaceAll, Intl.NumberFormat) rather than accepting them",
+        "Claude identifies the discount calculation discrepancy between cart and checkout",
+        "Claude flags the missing coupon validation in checkout (validateCoupon exists but is never called)"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Can you review this PR that adds shipping notifications? The proposed changes are in pr-shipping-notification/. The main codebase is the rest of the example-shop.",
+      "expected_output": "Claude should catch the duplicated interpolate function, the copied error handling pattern, the unilateral push notification decision, and the outdated replaceAll claim.",
+      "files": [],
+      "expectations": [
+        "Claude notices that fillTemplate() in the PR duplicates interpolate() from email-service.js",
+        "Claude catches that the PR copies the createOrder error handling pattern which has no try/catch — calling sendEmail without error handling means a failed email could break the shipment flow",
+        "Claude flags the unilateral push notification dismissal as a decision that should involve stakeholders",
+        "Claude questions the outdated replaceAll browser support claim in the PR code",
+        "Claude verifies the PR's claim of following the createOrder pattern and evaluates whether that pattern is actually sound"
       ]
     }
   ]

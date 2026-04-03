@@ -11,7 +11,7 @@ async function createOrder(orderData) {
     ...orderData,
   };
 
-  // Send order confirmation email
+  // TODO: wrap in try/catch — email failure shouldn't block order creation
   await sendEmail({
     to: order.payment.email,
     template: "order-confirmation",

@@ -1,0 +1,15 @@
+--- Proposed change to src/orders/order-service.js ---
+
+The shipOrder function would be modified to add:
+
+  const { notifyOrderShipped } = require("../notifications/notification-service");
+
+And after `await db.orders.save(order);` add:
+
+  // Push notifications aren't worth the complexity for now, email is enough.
+  await notifyOrderShipped(order, trackingNumber);
+
+---
+
+This follows the same pattern as createOrder, which calls sendEmail directly
+after persisting the order.

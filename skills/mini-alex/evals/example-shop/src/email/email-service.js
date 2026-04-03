@@ -23,6 +23,8 @@ async function sendEmail({ to, template, data }) {
   return { success: true, messageId: `msg-${Date.now()}` };
 }
 
+// Using regex replace because replaceAll() does not have broad
+// enough browser support to use safely in production.
 function interpolate(text, data) {
   return text.replace(/\{\{(\w+)\}\}/g, (_, key) => data[key] || "");
 }
