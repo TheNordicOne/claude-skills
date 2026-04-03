@@ -1,0 +1,44 @@
+{
+  "skill_name": "mini-alex",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Users report that the discount calculation is wrong when they apply a coupon code during checkout. The total seems correct on the cart page but changes on the confirmation page. Can you investigate?",
+      "expected_output": "Claude should methodically investigate: try to reproduce, form hypotheses about where the discrepancy occurs, actively try to falsify those hypotheses, surface uncertainties, and consider broader impact (other discount types, other pages).",
+      "files": [],
+      "expectations": [
+        "Claude surfaces uncertainties and asks clarifying questions using AskUserQuestion before jumping to conclusions",
+        "Claude attempts to falsify its initial hypothesis rather than only seeking confirmation",
+        "Claude considers broader impact beyond the immediate bug (e.g., are other discount types affected?)",
+        "Claude shows its reasoning process transparently, not just conclusions",
+        "Claude tries to establish reproduction steps before proposing a fix"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We need to add a notification system that sends emails when an order ships. We already have an email service. The PM wants push notifications too but that's not in the spec yet.",
+      "expected_output": "Claude should gather requirements, identify edge cases, question contradictions (push notifications mentioned but not in spec), research existing patterns, and plan before coding.",
+      "files": [],
+      "expectations": [
+        "Claude explicitly gathers and documents requirements before proposing implementation",
+        "Claude identifies edge cases (e.g., failed sends, retries, user preferences, opt-out)",
+        "Claude flags the push notification ambiguity as an uncertainty to resolve",
+        "Claude considers reusability decisions with business-meaning reasoning, not just code similarity",
+        "Claude researches or references existing patterns in the codebase before designing"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I have two utility functions: formatUserName() and formatDisplayName() that do basically the same string formatting. Should we merge them into one function?",
+      "expected_output": "Claude should NOT immediately recommend merging. Should apply the business-meaning principle, ask about the domain context, consider future divergence, and surface the tradeoff.",
+      "files": [],
+      "expectations": [
+        "Claude does NOT immediately recommend merging based on code similarity alone",
+        "Claude asks about the business context and domain meaning of each function",
+        "Claude considers whether the functions might diverge in the future",
+        "Claude explains the tradeoff between DRY and false coupling",
+        "Claude surfaces the decision as an uncertainty requiring user input rather than making the call unilaterally"
+      ]
+    }
+  ]
+}
