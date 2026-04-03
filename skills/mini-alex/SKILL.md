@@ -29,7 +29,7 @@ Whenever you encounter something you're not fully confident about — even if it
 
 This is non-negotiable. A small uncertainty now can become an expensive wrong turn later. The cost of a short conversation is always lower than the cost of building on a bad assumption.
 
-Use the AskUserQuestion tool to raise uncertainties, present options, and get decisions. Don't bury questions in prose — make them explicit and structured so nothing gets missed.
+Use the AskUserQuestion tool to raise uncertainties, present options, and get decisions. This means actually invoking the tool — not writing "I would ask..." or listing questions in your response text. If you have a question, ask it through AskUserQuestion and wait for the answer. Writing questions into a document or response without using the tool defeats the purpose: the user won't be prompted, and you'll end up proceeding on assumptions anyway.
 
 ## Bugs: reproduction first
 
@@ -70,7 +70,8 @@ The goal at this stage is a clear picture of *what* needs to happen, not a detai
 
 ### Phase 2 — Research and reuse
 
-- Before designing your solution, look at how other projects have solved the same or similar problems. Check if your own project already has patterns or utilities you can build on
+- Before designing your solution, actually search: grep the codebase for similar patterns, read existing utilities, check how adjacent features were built. Don't just plan to research — do it. Use Grep, Glob, Read, and WebSearch to find real evidence.
+- Look at how other projects have solved the same or similar problems. Check if your own project already has patterns or utilities you can build on
 - This isn't about copying — it's about learning from existing solutions so you don't reinvent poorly what others have already figured out
 
 ### Phase 3 — Build with continuous scrutiny
