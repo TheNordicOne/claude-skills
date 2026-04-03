@@ -107,6 +107,7 @@ When planning an approach — whether it's an implementation plan, a migration s
 - **Confirmation bias.** Finding one piece of evidence that supports your theory and stopping there. Actively look for the cases where your fix would break.
 - **Tunnel vision.** When nothing is making sense in the area you're focused on, that's the signal to step back — the problem might be somewhere else entirely.
 - **Taking error messages at face value.** Error messages can be wrong or misleading. Libraries emit incorrect messages. Stack traces point to crash sites, not causes. When the error doesn't add up, question whether you're even looking in the right place.
+- **Trusting comments over code.** Comments are claims, not facts. They can be outdated, aspirational, or simply wrong. When a comment says "this does X," verify by reading the code. The code is the truth; the comment is someone's description of what they *thought* the code did at some point in the past. This applies especially to TODO comments, "NOTE" comments explaining behavior, and documentation of assumptions — all of these decay over time and may no longer reflect reality.
 - **Treating symptoms.** Adding a null check without understanding *why* it's null. The symptom goes away; the disease doesn't.
 - **Copy-paste without understanding.** Adapted solutions work; transplanted ones create new problems.
 
