@@ -31,6 +31,8 @@ This is non-negotiable. A small uncertainty now can become an expensive wrong tu
 
 Use the AskUserQuestion tool to raise uncertainties, present options, and get decisions. This means actually invoking the tool — not writing "I would ask..." or listing questions in your response text. If you have a question, ask it through AskUserQuestion and wait for the answer. Writing questions into a document or response without using the tool defeats the purpose: the user won't be prompted, and you'll end up proceeding on assumptions anyway.
 
+Never self-answer your own questions. If you catch yourself thinking "the answer is probably X, so I'll just assume that" — stop. That's exactly the moment you need to ask. Your assumption might be wrong, and the cost of asking is always less than the cost of building on a wrong assumption.
+
 ## Bugs: reproduction first
 
 When investigating a bug, the first goal is always a reliable reproduction — not a fix, not even a root cause theory.
@@ -65,6 +67,7 @@ When building something new, the first goal is clarity about what you're buildin
 - When you find contradicting requirements, flag them and resolve them — don't just pick one and hope for the best
 - Apply the perspective shifts early: How does this look from the user's perspective? What happens at the boundaries of this feature? What existing code will this interact with, and what assumptions does that code make?
 - If there's a UI involved, think through how a real user would actually interact with it. What's the flow? What happens when things go wrong? What's the empty state?
+- Think about the user-facing edge cases, not just the technical ones: Can users opt out? What are their preferences? What happens with notification fatigue? What about users in different time zones or locales? These are easy to miss when you're focused on the implementation, but they shape the design.
 
 The goal at this stage is a clear picture of *what* needs to happen, not a detailed design of *how*. A general approach is enough.
 
@@ -100,11 +103,17 @@ When planning an approach — whether it's an implementation plan, a migration s
 
 ## Anti-patterns to resist
 
-These are the traps that lead to wasted time and brittle solutions:
+- **Jumping to solutions.** The urge to "just start coding" feels productive but usually isn't. Understand the problem before writing code.
+- **Confirmation bias.** Finding one piece of evidence that supports your theory and stopping there. Actively look for the cases where your fix would break.
+- **Tunnel vision.** When nothing is making sense in the area you're focused on, that's the signal to step back — the problem might be somewhere else entirely.
+- **Taking error messages at face value.** Error messages can be wrong or misleading. Libraries emit incorrect messages. Stack traces point to crash sites, not causes. When the error doesn't add up, question whether you're even looking in the right place.
+- **Treating symptoms.** Adding a null check without understanding *why* it's null. The symptom goes away; the disease doesn't.
+- **Copy-paste without understanding.** Adapted solutions work; transplanted ones create new problems.
 
-- **Jumping to solutions.** Writing code before you understand the problem is the single most expensive habit in software development. The urge to "just start coding" feels productive but usually isn't.
-- **Confirmation bias.** Finding one piece of evidence that supports your theory and stopping there. The fix seems to work in your one test case, so it must be right — except you never checked the three other scenarios where it would break.
-- **Tunnel vision.** Fixating on one file, one function, one layer of the stack while the actual problem (or a better solution) is somewhere else entirely. When you've been staring at the same code for too long and nothing is making sense, that's the signal to step back.
-- **Taking error messages at face value.** Error messages and stack traces are evidence — read them carefully, the full message, not just the first line. But also apply the falsification principle here: if an error message doesn't seem to make sense, consider that the message itself might be wrong or misleading. Libraries sometimes emit incorrect error messages. Stack traces sometimes point to the crash site, not the cause. The real problem might not appear in the trace at all. When the error doesn't add up, step back and question whether you're even looking in the right place.
-- **Treating symptoms.** Adding a null check because something is unexpectedly null, without understanding *why* it's null. The symptom goes away; the disease doesn't.
-- **Copy-paste without understanding.** Grabbing a solution from another part of the codebase or from the web and plugging it in without understanding what it does and whether it fits your context. Adapted solutions work; transplanted ones create new problems.
+## Gotchas
+
+These are specific patterns where things consistently go wrong:
+
+- **Copying existing code patterns blindly.** When you see how the codebase does something similar, check whether that pattern is actually correct before replicating it. Existing code can have bugs — copying a pattern means copying its bugs. Always evaluate whether the pattern you're following is sound, not just established.
+- **Making design decisions that belong to the user.** When there are legitimate alternatives (sync vs async, strict vs lenient, immediate vs deferred), present the options via AskUserQuestion rather than picking one. Your job is to surface the tradeoff, not to resolve it.
+- **Conflating "not in spec" with "not relevant."** When something is mentioned but not in scope (like a PM wanting push notifications), don't dismiss it — flag it as an uncertainty. The decision about scope belongs to the stakeholders, and your awareness of it should inform the design even if it's deferred.
