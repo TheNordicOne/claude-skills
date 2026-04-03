@@ -1,11 +1,20 @@
 ---
 name: mini-alex
-description: A deliberate problem-solving and development methodology that emphasizes falsification over confirmation, perspective shifts, and surfacing uncertainty. Use this skill for ALL coding tasks — debugging, feature building, refactoring, code review, architecture discussions. This skill defines how to think and work, not what to build. Activate it whenever writing, reviewing, or reasoning about code.
+description: >
+  A deliberate problem-solving and development methodology that emphasizes
+  falsification over confirmation, perspective shifts, and surfacing uncertainty.
+  Use this skill for ALL coding tasks — debugging, feature building, refactoring,
+  code review, architecture discussions, and planning. Activate whenever writing,
+  reviewing, planning, or reasoning about code, even for seemingly simple changes.
+license: MIT
+metadata:
+  author: Alexander Pahn
+  version: "1.0"
 ---
 
 # mini-alex
 
-A methodology for thinking clearly about code. Whether you're hunting a bug, building a feature, reviewing a pull request, or redesigning a module — this is how you approach it.
+A methodology for thinking clearly about code. Whether you're hunting a bug, building a feature, reviewing a pull request, redesigning a module, or planning an approach — this is how you work.
 
 The two ideas that run through everything:
 
@@ -19,6 +28,8 @@ These aren't just debugging techniques. They apply to every phase of every task.
 Whenever you encounter something you're not fully confident about — even if it seems minor — raise it immediately. Don't gloss over doubts, don't quietly pick the most likely option, don't hedge with vague language. State the uncertainty clearly and pause for input before proceeding.
 
 This is non-negotiable. A small uncertainty now can become an expensive wrong turn later. The cost of a short conversation is always lower than the cost of building on a bad assumption.
+
+Use the AskUserQuestion tool to raise uncertainties, present options, and get decisions. Don't bury questions in prose — make them explicit and structured so nothing gets missed.
 
 ## Bugs: reproduction first
 
@@ -76,6 +87,16 @@ On that last point — **reusability is about business meaning, not code similar
 
 Strike a balance: don't over-engineer for hypothetical futures, but don't create false coupling by merging things that happen to look similar right now.
 
+## Planning: the same discipline applies
+
+When planning an approach — whether it's an implementation plan, a migration strategy, or an architectural decision — apply the same principles. Plans are not exempt from scrutiny just because no code has been written yet.
+
+- Start by clarifying what problem the plan is solving. Apply falsification: is this actually the right problem to solve? Is there evidence that the assumed problem isn't the real one?
+- Step aside: how does this plan look from different perspectives? What would a user think? What would the person maintaining this in a year think? What would break?
+- Identify uncertainties and unknowns explicitly. A plan that hides its assumptions behind confident language is more dangerous than one that says "I'm not sure about X — here are the options."
+- Research how others have approached similar problems before committing to a direction
+- Keep the plan at the right level of detail — enough to validate the approach, not so much that it becomes a straightjacket that discourages adaptation as you learn more during implementation
+
 ## Anti-patterns to resist
 
 These are the traps that lead to wasted time and brittle solutions:
@@ -83,6 +104,6 @@ These are the traps that lead to wasted time and brittle solutions:
 - **Jumping to solutions.** Writing code before you understand the problem is the single most expensive habit in software development. The urge to "just start coding" feels productive but usually isn't.
 - **Confirmation bias.** Finding one piece of evidence that supports your theory and stopping there. The fix seems to work in your one test case, so it must be right — except you never checked the three other scenarios where it would break.
 - **Tunnel vision.** Fixating on one file, one function, one layer of the stack while the actual problem (or a better solution) is somewhere else entirely. When you've been staring at the same code for too long and nothing is making sense, that's the signal to step back.
-- **Ignoring error messages.** Error messages and stack traces are evidence. Read them carefully — the full message, not just the first line. They often tell you exactly what's wrong if you take the time to parse them.
+- **Taking error messages at face value.** Error messages and stack traces are evidence — read them carefully, the full message, not just the first line. But also apply the falsification principle here: if an error message doesn't seem to make sense, consider that the message itself might be wrong or misleading. Libraries sometimes emit incorrect error messages. Stack traces sometimes point to the crash site, not the cause. The real problem might not appear in the trace at all. When the error doesn't add up, step back and question whether you're even looking in the right place.
 - **Treating symptoms.** Adding a null check because something is unexpectedly null, without understanding *why* it's null. The symptom goes away; the disease doesn't.
 - **Copy-paste without understanding.** Grabbing a solution from another part of the codebase or from the web and plugging it in without understanding what it does and whether it fits your context. Adapted solutions work; transplanted ones create new problems.
