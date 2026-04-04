@@ -4,66 +4,105 @@
     {
       "id": 1,
       "prompt": "Users report that the discount calculation is wrong when they apply a coupon code during checkout. The total seems correct on the cart page but changes on the confirmation page. Can you investigate?",
-      "expected_output": "Claude should trace both code paths, find the discount base discrepancy, question the lying comment about consistency, and surface uncertainties before proposing a fix.",
+      "expected_output": "Claude should trace both code paths, find the discount base discrepancy, explicitly flag lying comments, verify cross-file claims, and surface uncertainties before proposing a fix.",
       "files": [],
       "expectations": [
-        "Claude surfaces uncertainties and asks clarifying questions using AskUserQuestion before jumping to conclusions",
-        "Claude actually reads and traces code across multiple files to find the discrepancy",
-        "Claude identifies that checkout-service.js calculates discount on subtotal+tax while cart-service.js uses just subtotal",
-        "Claude catches the lying comment claiming 'same pricing logic as cart page' and flags it as incorrect",
-        "Claude considers broader impact beyond the immediate bug"
+        "Claude surfaces uncertainties and asks clarifying questions before jumping to conclusions",
+        "Claude reads and traces code across multiple files, identifying that checkout-service.js calculates discount on subtotal+tax while cart-service.js uses just subtotal",
+        "Claude explicitly quotes the 'same pricing logic as cart page' comment and states it is false based on the code evidence",
+        "Claude verifies the cross-file claim that 'coupon validation is handled by the cart layer' and finds it is false — validateCoupon is never called",
+        "Claude provides a concrete numerical reproduction showing the exact discrepancy amount"
       ]
     },
     {
       "id": 2,
       "prompt": "We need to add a notification system that sends emails when an order ships. We already have an email service. The PM wants push notifications too but that's not in the spec yet.",
-      "expected_output": "Claude should research existing code, gather requirements, flag push notification ambiguity, and identify edge cases including user opt-out.",
+      "expected_output": "Claude should research existing code, gather requirements, flag push notification ambiguity, and identify edge cases.",
       "files": [],
       "expectations": [
         "Claude gathers requirements and surfaces uncertainties via AskUserQuestion before proposing implementation",
-        "Claude actually reads the existing email-service.js and order-service.js to understand current patterns",
+        "Claude reads email-service.js and order-service.js, identifying the existing sendEmail pattern and the unresolved TODO about error handling",
         "Claude discovers the unused order-events.js and considers whether to build on it",
-        "Claude flags the push notification ambiguity as an uncertainty to resolve",
-        "Claude identifies edge cases like failed sends, retries, and user opt-out preferences"
+        "Claude flags the push notification mention as an uncertainty that stakeholders need to resolve — not a unilateral scope decision",
+        "Claude identifies user-facing edge cases including opt-out preferences and notification fatigue, not just technical failures"
       ]
     },
     {
       "id": 3,
       "prompt": "I have two utility functions: formatUserName() and formatDisplayName() that do basically the same string formatting. Should we merge them into one function?",
-      "expected_output": "Claude should read both files, understand business context from comments, and defer the decision to the user.",
+      "expected_output": "Claude should read both files, search for callers, understand business context, and defer the decision to the user.",
       "files": [],
       "expectations": [
         "Claude does NOT immediately recommend merging based on code similarity alone",
-        "Claude actually reads both files and their comments to understand the business context",
-        "Claude discovers the Q3 nickname/display-name plans mentioned in the comments",
+        "Claude reads both files and discovers the different business contexts (account name vs public display name) and the Q3 divergence plans",
+        "Claude searches for callers and discovers neither function is imported anywhere in the codebase",
         "Claude explains the tradeoff between DRY and false coupling using evidence from the code",
-        "Claude surfaces the decision as an uncertainty requiring user input"
+        "Claude surfaces the decision as an uncertainty requiring user input rather than making a unilateral recommendation"
       ]
     },
     {
       "id": 4,
       "prompt": "Can you review the checkout flow in this codebase? We're doing a quarterly code quality check.",
-      "expected_output": "Claude should find the discount bug, catch lying comments, verify cross-file claims, and flag outdated browser compatibility assertions.",
+      "expected_output": "Claude should find bugs, catch lying comments, verify cross-file claims, flag outdated assertions, ask questions before finalizing, and NOT flag correct comments as wrong.",
       "files": [],
       "expectations": [
-        "Claude catches the lying comment 'same pricing logic as cart page' by verifying it against the actual code",
+        "Claude explicitly flags the 'same pricing logic as cart page' comment as false by quoting it and showing the code contradicts it",
         "Claude verifies the cross-file claim 'coupon validation is handled by the cart layer' and finds it is false",
-        "Claude questions the outdated browser support claims (replaceAll, Intl.NumberFormat) rather than accepting them",
-        "Claude identifies the discount calculation discrepancy between cart and checkout",
-        "Claude flags the missing coupon validation in checkout (validateCoupon exists but is never called)"
+        "Claude questions the outdated browser support claims (replaceAll, Intl.NumberFormat) as irrelevant for server-side Node.js code",
+        "Claude does NOT flag these correct comments as wrong: cart-service 'tax calculated on post-discount amount', order-events 'currently unused', coupon-validator ORM constraint explanation",
+        "Claude asks structured questions or surfaces uncertainties before finalizing the review rather than just listing findings"
       ]
     },
     {
       "id": 5,
       "prompt": "Can you review this PR that adds shipping notifications? The proposed changes are in pr-shipping-notification/. The main codebase is the rest of the example-shop.",
-      "expected_output": "Claude should catch the duplicated interpolate function, the copied error handling pattern, the unilateral push notification decision, and the outdated replaceAll claim.",
+      "expected_output": "Claude should catch the duplicated utility, the runtime crash, the copied buggy pattern, the unilateral scope decision, and the outdated claim.",
       "files": [],
       "expectations": [
+        "Claude identifies the missing 'order-shipped' template in email-service.js that will cause a runtime crash on every notification",
         "Claude notices that fillTemplate() in the PR duplicates interpolate() from email-service.js",
-        "Claude catches that the PR copies the createOrder error handling pattern which has no try/catch — calling sendEmail without error handling means a failed email could break the shipment flow",
-        "Claude flags the unilateral push notification dismissal as a decision that should involve stakeholders",
-        "Claude questions the outdated replaceAll browser support claim in the PR code",
-        "Claude verifies the PR's claim of following the createOrder pattern and evaluates whether that pattern is actually sound"
+        "Claude questions the PR's error handling by tracing the createOrder pattern it claims to follow, finding the existing TODO acknowledging the pattern is broken, and concluding the pattern should not be copied",
+        "Claude flags the push notification dismissal as a stakeholder decision, not a code-level call",
+        "Claude questions the outdated replaceAll browser support claim as irrelevant for Node.js"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Customers report that when they use a coupon, the order total in their account (from getOrderHistory) is wrong — it shows the full price without the discount. But the confirmation email they received showed the correct discounted total. Can you investigate?",
+      "expected_output": "Claude should observe, not theorize. The obvious theory (discount calculation is wrong) is incorrect. The real cause is that sendEmail mutates the order object's total.",
+      "files": [],
+      "expectations": [
+        "Claude adds an observation (log, trace, or similar) before trying a second approach — does not jump from reading code to proposing multiple fixes",
+        "Claude identifies that the order total is correct before the sendEmail call but wrong after it returns",
+        "Claude traces the mutation to the email service's monetary normalization in sendEmail, not to the discount calculation or checkout logic",
+        "Claude does NOT try more than 2 approaches to fix the discount/checkout calculation before discovering the real cause is elsewhere",
+        "Claude uses runtime-style observation (tracing values before/after function calls) rather than only reading code to find the mutation"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Expired coupons are being accepted during checkout. Customers can use coupons past their expiration date and still get the discount. Can you find out why?",
+      "expected_output": "The obvious theory is that the expiry check logic is wrong. But coupon-validator.js has correct logic — it's just never called. The agent needs to realize the correct code is dead code.",
+      "files": [],
+      "expectations": [
+        "Claude reads coupon-validator.js and confirms the expiry check logic is correct",
+        "Claude discovers that validateCoupon is never imported or called by any file in the codebase — the correct code is dead code",
+        "Claude identifies that checkout-service.js does its own inline coupon lookup without any validation checks",
+        "Claude does NOT try to fix the logic inside validateCoupon (which is already correct) — recognizes the problem is that it's never called",
+        "Claude questions the comment in checkout-service claiming validation is handled by the cart layer, and verifies this claim is false"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "We deployed a fix to the checkout: tax is now calculated on the post-discount amount (matching the cart page). But after the deploy, customers report the totals are MORE wrong than before — the discounts seem way too large. Can you investigate why the fix made things worse? The updated checkout-service is at fixtures/checkout-service-partial-fix.js.",
+      "expected_output": "Two bugs were canceling out. The tax fix exposed the discount bug. The agent needs to recognize there are two interacting errors, not one bad fix.",
+      "files": ["fixtures/checkout-service-partial-fix.js"],
+      "expectations": [
+        "Claude identifies that two separate bugs existed that were roughly canceling each other out",
+        "Claude finds the remaining bug: discount is calculated on subtotal+tax instead of just subtotal",
+        "Claude does NOT conclude that the tax fix was wrong — recognizes it was correct but exposed a second bug",
+        "Claude works through the math to show how the errors previously canceled and how fixing one exposed the other",
+        "Claude surfaces the question of which calculation should be authoritative (the cart's applyCoupon or the checkout's inline logic) as an uncertainty"
       ]
     }
   ]

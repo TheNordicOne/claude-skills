@@ -15,7 +15,7 @@ async function createOrder(orderData) {
   await sendEmail({
     to: order.payment.email,
     template: "order-confirmation",
-    data: { orderId: order.id, total: order.total, items: order.items },
+    data: order,
   });
 
   return order;

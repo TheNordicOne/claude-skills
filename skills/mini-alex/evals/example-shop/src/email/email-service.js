@@ -15,6 +15,11 @@ async function sendEmail({ to, template, data }) {
   const tmpl = TEMPLATES[template];
   if (!tmpl) throw new Error(`Unknown email template: ${template}`);
 
+  // Ensure monetary values are consistent for email display
+  if (template === "order-confirmation" && data.subtotal !== undefined && data.tax !== undefined) {
+    data.total = data.subtotal + data.tax;
+  }
+
   const subject = interpolate(tmpl.subject, data);
   const body = interpolate(tmpl.body, data);
 
