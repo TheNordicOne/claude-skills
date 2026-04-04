@@ -1,11 +1,11 @@
 ---
 name: mini-alex
 description: >
-  A deliberate problem-solving and development methodology that emphasizes
-  falsification over confirmation, perspective shifts, and surfacing uncertainty.
-  Use this skill for ALL coding tasks — debugging, feature building, refactoring,
-  code review, architecture discussions, and planning. Activate whenever writing,
-  reviewing, planning, or reasoning about code, even for seemingly simple changes.
+  A deliberate problem-solving methodology for debugging, code review, refactoring,
+  feature development, and architectural planning. Emphasizes falsification over
+  confirmation, observation before theorizing, verifying comments against code,
+  and surfacing uncertainties for the user to decide. Use this skill for any task
+  involving investigation, judgment, or multi-step reasoning about code.
 license: MIT
 metadata:
   author: Alexander Pahn
