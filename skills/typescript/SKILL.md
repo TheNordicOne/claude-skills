@@ -28,7 +28,7 @@ Early-return guard clauses, block bodies (including `switch` cases), positive co
 Named standalone functions are `function` declarations, not arrow-consts. Default to functions and modules; a class is the rare exception for a genuine instantiable object — not for state or grouping.
 
 ### Type safety → `references/type-safety.md`
-No `any`, no non-null `!`, `as` only as a last resort (and `satisfies` over `as`), no weak types (`{}`/`object`/`Function`), `unknown` for uncertain values, let inference do return types.
+No `any`, no non-null `!`, `as` only as a last resort (and `satisfies` over `as`), no catch-all types (`{}`/`object`/`Function`), `unknown` for uncertain values, let inference do return types.
 
 ### Type modelling → `references/types-and-modelling.md`
 `interface` by default (`type` when you need what it can't do), discriminated unions for state with mandated exhaustiveness, derive with utility types instead of hand-rolling, brand domain primitives, `as const` objects instead of `enum`.

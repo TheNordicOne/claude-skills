@@ -10,4 +10,4 @@ Where a framework has an established idiom for how its functions are written, ma
 
 ## Classes
 
-Default to plain functions and modules. A class is the **rare** exception — reserve it for a genuine instantiable object that couples data with behaviour and is used as an instance (a builder, a stateful parser, and the like). **"Holding state" and "grouping related functions" are not reasons**: a "service" that's a bag of functions with injected dependencies should be functions. Where a framework's convention is class-based (components, services), follow it — that carve-out is the main place a class is the right call.
+Default to plain functions and modules. A class earns its place only when you genuinely need to **construct instances that bundle data with the operations on it and are used as instances** — a builder, a stateful parser, and the like. Reaching for a class merely to hold some state, or to group functions behind injected dependencies (a "service"), is not that — write functions. Where a framework's convention is class-based (components, services), follow it — that carve-out is the main place a class is the right call.
