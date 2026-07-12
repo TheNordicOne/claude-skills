@@ -12,11 +12,11 @@ A **variant** is one explicit, self-describing class that overrides **only** wha
 
 The shape matters: the **shared thing is the component base** (grouped by the element or the family selector), **not the variant** — grouping by variant recreates a utility class. **Sharing happens through the token** (the "shared by meaning → custom property" rule); each explicit class just consumes it. And you never *invent* a `data-*` to style, since that's a class in disguise — style only from attributes that exist for a real reason (real state, native, or ARIA).
 
-Caveat on the family selector: a starts-with match only matches when the family prefix is the *first* class in the attribute; if elements can carry other classes too, use a form that also matches the prefix after a space.
+Caveat: make sure a family selector actually matches the class where it really sits — a naive prefix match only catches the family class when it's first, so account for elements that also carry other classes.
 
 ## Name quality: explicit, unique, searchable
 
-A class name should read as what the thing is. No cryptic abbreviations — say the whole word, or drop the class when the element already *is* it. No empty catch-alls (`wrapper`, `box`, `item`, `content`, `container`): they're meaningless *and* they duplicate — every component ends up with one, so the name tells you nothing and you can't grep it or tell them apart. Scoping stops the technical collision but doesn't redeem a meaningless, repeated name. Pick something specific enough to be effectively unique and searchable.
+A class name should read as what the thing is. No cryptic abbreviations — say the whole word, or drop the class when the element already *is* it. No empty catch-alls — generic names like `wrapper`, `box`, or `item`: they're meaningless *and* they duplicate — every component ends up with one, so the name tells you nothing and you can't grep it or tell them apart. Scoping stops the technical collision but doesn't redeem a meaningless, repeated name. Pick something specific enough to be effectively unique and searchable.
 
 ## Semantic, not presentational
 

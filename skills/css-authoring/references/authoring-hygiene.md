@@ -2,7 +2,7 @@
 
 ## Don't restate values already in effect
 
-Declaring a property whose value is already the effective value is noise that reads as intent. "Already in effect" covers three sources: the property's initial value, the UA default, **and inherited values**. The nuance: a declaration that *looks* like a default while actually **overriding** an inherited, UA, or framework value is legitimate. The test is always whether it changes the computed value or is a no-op.
+Declaring a property whose value is already the effective value is noise that reads as intent. "Already in effect" covers three sources: the property's initial value, the UA default, **and inherited values**. The nuance: a declaration that *looks* like a default while actually **overriding** an inherited, UA, or upstream value is legitimate. The test is always whether it changes the computed value or is a no-op.
 
 ## Shorthand vs longhand — match the form to intent
 

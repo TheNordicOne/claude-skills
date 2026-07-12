@@ -10,7 +10,7 @@ This is about *where a style conceptually belongs*, not an exact file tree or an
 
 ## Cascade layers: make what-wins deliberate
 
-Organize styles into ordered layers so what wins is decided by **layer order**, not source order or specificity escalation — which is precisely what lets specificity stay flat and `!important` stay unnecessary. (The layer syntax itself lives in `css-features`; this is the philosophy.) The gotcha to watch: **unlayered styles beat every layer** regardless of order, so a stray unlayered rule silently trumps the whole system.
+Organize styles into ordered layers so what wins is decided by **layer order**, not source order or specificity escalation — which is precisely what lets specificity stay flat and `!important` stay unnecessary. (The layer syntax itself lives in `css-features`; this is the philosophy.) Note that layer order governs only *layered* styles: **unlayered styles sit above every layer** regardless of order, so a stray unlayered rule silently trumps the whole system.
 
 ## Declaration order within a rule: grouped by concern
 
