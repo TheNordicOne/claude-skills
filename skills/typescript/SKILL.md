@@ -1,63 +1,43 @@
 ---
 name: typescript
-description: Opinionated TypeScript code style and type safety rules. Activate when editing any `.ts` file — covers control flow, type safety, enums, and naming conventions.
+description: >
+  Opinionated TypeScript style and type-safety conventions — control flow, functions & classes,
+  type safety, type modelling, generics, async & errors, and modules & naming. Activate when
+  editing any `.ts`/`.tsx` file.
 license: MIT
 compatibility: Requires TypeScript 5+
 ---
 
-# TypeScript Code Style
+# TypeScript
 
-Strict, opinionated rules. Follow these to write correct code on the first draft.
+Opinionated rules for writing correct, well-typed TypeScript on the first draft. Detail for each area lives in `references/` — pull the file you need.
 
-## Control Flow
+## How to use this skill
 
-- **Early returns for guard clauses** — return early for error/edge cases to keep main logic flat
-- **Always use block bodies** for `if` with `return` — never `if (!x) return;` on one line
-- **Prefer positive conditions** — check what should happen, not what shouldn't. Does NOT apply to guard clauses, where negative checks are expected
-- **No `else` after `return`** — if a branch returns, the next block needs no `else`
-- **`switch` over chained `if`** — when checking the same variable against multiple values
+- **Assume `strict`.** These rules presuppose `strict` mode, and lean on the high-value extras: `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `noImplicitReturns`.
+- **Strong defaults, not blind absolutes.** Most rules are firm because they earn it; where a rule is genuinely a default, deviate with a reason — not on a whim.
+- **Defer to the framework where it has a real convention.** Where a library or framework mandates a pattern (class-based components/services, a specific function form), follow it rather than fighting it. These rules are for code whose shape you control.
+- A priming lens, not a closed checklist — keep reasoning about the specific code.
 
-## Functions
+## The areas
 
-A named, standalone function is a `function` declaration — not `const name = () => {}`. Reach for arrow-const only when the language forces your hand, never as the default.
+### Control flow → `references/control-flow.md`
+Early-return guard clauses, block bodies (including `switch` cases), positive conditions, no `else` after `return`, `switch` over chained `if`.
 
-- **Named standalone functions → `function` declarations** — `function sortByDate(items: Item[]) {}`, not `const sortByDate = () => {}`. Declarations hoist (so you can order code top-down, callers above definitions), the `function` keyword announces what the thing is, and stack traces get a real name for free. The reflexive `const fn = () =>` habit buys none of this.
-- **Arrow functions are for the cases the rule doesn't reach**, not for dodging it:
-  - **Anonymous callbacks** passed as arguments — `users.filter(u => u.active).map(u => u.name)`. Never named, so nothing to declare.
-  - **Functions you're handed back and must store** — `const onClick = useCallback(() => {...}, [id])`, or an arrow you immediately `return`. Something else produces the function; you're just naming the result. There's no declaration form to prefer.
-- **Currying is not a reason** — the named outer function stays a declaration; only the returned inner lambda is an arrow:
+### Functions & classes → `references/functions-and-classes.md`
+Named standalone functions are `function` declarations, not arrow-consts. Default to functions and modules; a class is the rare exception for a genuine instantiable object — not for state or grouping.
 
-  ```typescript
-  function withRetry(attempts: number) {
-    return (fn: () => void) => {
-      for (let i = 0; i < attempts; i++) { /* ... */ }
-    };
-  }
-  ```
-- **Follow the framework's idiom where one exists** — if a library or framework has an established best practice for how its functions are written (component or hook conventions, etc.), match it rather than fighting it. Defer to real, documented convention — not to habit.
+### Type safety → `references/type-safety.md`
+No `any`, no non-null `!`, `as` only as a last resort (and `satisfies` over `as`), no weak types (`{}`/`object`/`Function`), `unknown` for uncertain values, let inference do return types.
 
-## Type Safety
+### Type modelling → `references/types-and-modelling.md`
+`interface` by default (`type` when you need what it can't do), discriminated unions for state with mandated exhaustiveness, derive with utility types instead of hand-rolling, brand domain primitives, `as const` objects instead of `enum`.
 
-- **No `any`** — forbidden. Use `unknown` for uncertain types, generics to preserve/relate types
-- **No non-null assertions (`!`)** — forbidden. Use optional chaining (`?.`) or guard clauses
-- **Minimize `as` casting** — fix types at the source. Use generics, `satisfies`, or type guards instead
-- **Generics over broad types** — prefer generic parameters over accepting broad types and casting results
-- **Let TypeScript infer return types** — only annotate when needed (public APIs, recursion, or when inference produces the wrong type)
+### Generics → `references/generics.md`
+Generics to relate types (never a single-use type param), constrained with `extends`, with default type params where useful.
 
-## Enums
+### Async & errors → `references/async-and-errors.md`
+No floating promises, `await` over `.then`, `Promise.all` for independent work; throw `Error` (or a subclass), and treat caught errors as `unknown`.
 
-**No enums** — forbidden. Use `as const` objects with derived types:
-
-```typescript
-const Status = {
-  Active: 'active',
-  Inactive: 'inactive',
-} as const;
-
-type Status = (typeof Status)[keyof typeof Status];
-```
-
-## Naming
-
-- **Be descriptive** — prefer specificity over brevity. `activeUsers` not `data`, `sortByDate` not `process`
-- **No `I`/`T` prefixes** — `User` not `IUser`, `Config` not `TConfig`
+### Modules & naming → `references/modules-and-naming.md`
+Named exports over default, `import type` for type-only imports; descriptive names, no `I`/`T` prefixes.
