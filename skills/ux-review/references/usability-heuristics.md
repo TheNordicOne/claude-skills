@@ -2,6 +2,8 @@
 
 Nielsen's 10 Usability Heuristics (Jakob Nielsen / NN.g) and Laws of UX (Jon Yablonski, CC BY-NC-ND). Each principle is rendered as a concrete thing a reviewer can look for in markup or a rendered screen. Paraphrased; cite the source URL when you report a finding.
 
+Treat this as a priming lens, **not a closed checklist** — apply the principles that fit the target and keep reasoning about how this specific UI could fail a real user. An issue that isn't captured by any entry here is still a finding.
+
 ## Nielsen's 10 Usability Heuristics
 Root: https://www.nngroup.com/articles/ten-usability-heuristics/
 

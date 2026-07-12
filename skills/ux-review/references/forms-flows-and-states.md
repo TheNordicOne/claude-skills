@@ -2,6 +2,8 @@
 
 Evidence-based rules from Baymard Institute (usability testing; cite/link only), the GOV.UK Design System & Service Manual (Open Government Licence v3.0 — attribute), NN.g, and W3C WCAG. Each is an observable check. Paraphrased.
 
+Treat this as a priming lens, **not a closed checklist** — apply what fits the form or flow at hand and keep reasoning about how a real user could get stuck, confused, or lose work. An issue not covered by any entry here is still a finding.
+
 > **One genuine tension to resolve by context:** GOV.UK recommends validating **on submit** (single-question government pages); Baymard recommends validating **on blur** (long commercial multi-field forms). Not contradictory — pick by form type.
 
 ## Form field labeling

@@ -4,6 +4,8 @@ Manipulative UI that works against the user's interest. Taxonomy names and defin
 
 Primary sources: https://www.deceptive.design/types · https://www.nngroup.com/articles/deceptive-patterns/
 
+Treat this taxonomy as a priming lens, **not a closed checklist** — new deceptive patterns are invented constantly, and the underlying test is simple: does this UI steer the user toward a choice against their own interest through pressure, trickery, or obstruction? If it does and no named pattern below fits, it's still a finding.
+
 > **These are also AI defaults, not just adversarial human choices.** An audit of 1,296 LLM-generated e-commerce components found 55.8% deceptive, produced spontaneously; "deal banner" components were 100% deceptive, membership signup 95.8% (arXiv 2502.13499). "Maximize sales"-style prompting makes it worse. Treat their presence as a red flag regardless of intent.
 
 > **Regulatory cross-reference:** preselected consent, confirmshaming, and obstructed cancellation are restricted under the **EU Digital Services Act (Art. 25)**, targeted by the **US FTC** ("Bringing Dark Patterns to Light," 2022), and the **California CPPA**. Flagging these is compliance, not only UX.
