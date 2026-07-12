@@ -19,7 +19,7 @@ These guidelines exist to make you **think about what you're doing**, not to han
 - **Intent decides.** The same declaration can be right or wrong depending on what you're trying to achieve. There is rarely a 1:1 "this property → that value" mapping; where several options are legitimate, the guidance names the deciding factor, not a single forced answer.
 - **Best practices, not reinvention.** These are established conventions applied with judgment — use them, don't re-derive them.
 - **Strong defaults, not absolutes.** A "default" is where you start and deviate with a reason — not a `NEVER`/`ALWAYS`. Almost nothing here is a hard ban; the few genuinely firm rules say so and explain why.
-- **A priming lens, not a closed checklist.** Examples are illustrative. Keep reasoning about how *this* code should behave — a problem not named here is still a problem, and a pattern flagged here can be exactly right in context.
+- **A priming lens, not a closed checklist.** Keep reasoning about how *this* code should behave — a problem not named here is still a problem, and a pattern flagged here can be exactly right in context.
 - **Framework-agnostic.** No framework names, framework-specific file conventions, or framework mechanisms — the principles hold anywhere CSS is written.
 
 Detail and examples for each area live in `references/` — pull the file you need rather than loading everything.
