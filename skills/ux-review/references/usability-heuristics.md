@@ -1,0 +1,36 @@
+# Usability heuristics — observable checks
+
+Nielsen's 10 Usability Heuristics (Jakob Nielsen / NN.g) and Laws of UX (Jon Yablonski, CC BY-NC-ND). Each principle is rendered as a concrete thing a reviewer can look for in markup or a rendered screen. Paraphrased; cite the source URL when you report a finding.
+
+## Nielsen's 10 Usability Heuristics
+Root: https://www.nngroup.com/articles/ten-usability-heuristics/
+
+1. **Visibility of system status** — Flag async actions (submit, upload, save, navigate, search) that fire with no loading/spinner/disabled/progress state; long operations with no skeleton or progress; toggles/saves with no confirmation the state changed; current location not indicated in nav (no active/`aria-current`).
+2. **Match between system and the real world** — Flag raw system/DB terms leaking into UI ("null", "exception", "STATUS_2", record IDs); date/number/currency formats ignoring locale; icons/metaphors that don't map to real meaning; database-order rather than natural-order lists.
+3. **User control and freedom** — Flag destructive/irreversible actions with no undo and no confirmation; modals/flows with no visible close/cancel/back; wizards that can't go back or lose data on back; forced states with no exit; form submit that discards input on failure.
+4. **Consistency and standards** — Flag the same action labeled differently across screens ("Delete" vs "Remove" vs "Trash"); primary buttons styled inconsistently; reinvented native controls; links styled as buttons and vice versa; divergent duplicated component variants.
+5. **Error prevention** — Flag free-text where a constrained control fits (typed date vs picker; no input mask/`inputmode`/`type`); no inline validation before submit; destructive buttons adjacent to common ones with no guard; unit/format ambiguity with no helper text.
+6. **Recognition rather than recall** — Flag forcing users to remember data across steps instead of carrying it forward; no autocomplete/recently-used/defaults; essential actions behind memory-dependent gestures with no visible affordance; settings referencing values defined elsewhere without showing them.
+7. **Flexibility and efficiency of use** — Flag no keyboard shortcuts / bulk actions / batch-select for repetitive high-volume tasks; no saved filters/templates/defaults; power features with no accelerator.
+8. **Aesthetic and minimalist design** — Flag screens of equally-weighted content with no hierarchy; multiple competing primary CTAs; decorative chrome adding no information; walls of text with no chunking; dialogs asking more than the task needs.
+9. **Help users recognize, diagnose, recover from errors** — Flag error messages showing codes/stack traces ("Error 500", "ValidationException"); generic "Something went wrong" with no cause/next step; errors not tied to the offending field (no inline anchor, no `aria-describedby`); text stating the problem but not the fix; toasts that vanish before they can be read.
+10. **Help and documentation** — Flag complex/uncommon controls with no tooltip/helper text; help disconnected from the task; empty states that don't explain what to do next; no contextual learn-more near advanced features.
+
+## Laws of UX (Jon Yablonski)
+Root: https://lawsofux.com/ — CC BY-NC-ND 4.0, attribute Jon Yablonski. Highest markup-checkability first.
+
+- **Fitts's Law** — target size & distance. Flag interactive targets below **WCAG 2.2 SC 2.5.8 (24×24 CSS px)**, aiming for 44×44 (Apple HIG 44pt / Material 48dp); crammed adjacent targets with no spacing; tiny "×"/link-sized touch targets; hit-area limited to the glyph rather than a padded box. https://lawsofux.com/fittss-law/
+- **Visibility / Doherty Threshold** — feedback within ~**400ms**; operations >1s need skeleton/progress/optimistic UI. Flag awaiting a network call before any visual acknowledgement of the click. https://lawsofux.com/doherty-threshold/
+- **Von Restorff (isolation)** — the distinct item is remembered. Flag no single dominant CTA (multiple "primary" buttons); emphasis carried by **color alone** (needs a second cue: weight/icon/size/label); over-emphasis (everything highlighted); key element that looks like an ad. https://lawsofux.com/von-restorff-effect/
+- **Hick's Law** — decision time grows with choices. Flag menus/settings/filters dumping 15+ equally-weighted options with no grouping or progressive disclosure; onboarding exposing every feature at once; no recommended default among many options. https://lawsofux.com/hicks-law/
+- **Law of Proximity & Common Region (Gestalt)** — Flag labels far from their inputs or floating between two fields; related controls spread apart while unrelated ones sit close; help text closer to the next field than its own; items that belong together with no enclosing container/card, or a shared container implying a false relationship. https://lawsofux.com/law-of-proximity/ · https://lawsofux.com/law-of-common-region/
+- **Goal-Gradient Effect** — Flag multi-step flows (checkout, onboarding, long forms) with no progress indicator / step counter / "3 of 5". https://lawsofux.com/goal-gradient-effect/
+- **Chunking** — Flag walls of text/data with no headings/sections/whitespace; long forms not grouped into fieldsets; semantically flat markup where grouping is warranted. https://lawsofux.com/chunking/
+- **Serial Position Effect** — Flag primary actions or key nav items buried in the *middle* of a list/toolbar rather than first or last. https://lawsofux.com/serial-position-effect/
+- **Postel's Law** — be liberal in what you accept. Flag inputs rejecting trivially-normalizable variation (phone/card failing on spaces/dashes, names rejecting apostrophes/non-ASCII, over-strict email/date regex); validation that rejects instead of normalizing. https://lawsofux.com/postels-law/
+- **Tesler's Law** — irreducible complexity should sit with the design, not the user. Flag form fields for data the app could derive/auto-fill; asking users to compute/format/look up values the system already has. https://lawsofux.com/teslers-law/
+- **Miller's Law** — chunk information (don't use "7" as a hard cap). Flag long unbroken strings not grouped (phone/card/IBAN as one run of digits); flat 20+ item lists with no categories. https://lawsofux.com/millers-law/
+- **Jakob's Law** — users expect your site to work like the others they know. Flag reinvented conventions (logo not linking home, non-standard checkout, custom scroll/gestures overriding native behavior). https://lawsofux.com/jakobs-law/
+- **Peak-End Rule** — Flag key flows that end flatly or on friction (a bare "payment complete" dead-end); high-value moments with no reinforcing feedback. https://lawsofux.com/peak-end-rule/
+- **Aesthetic-Usability Effect** *(reviewer caution)* — polished visuals mask usability/a11y problems; verify function independent of styling, and don't let "it looks good" excuse broken keyboard nav, poor contrast, or unclear labels. https://lawsofux.com/aesthetic-usability-effect/
+- **Cognitive Load** — minimize extraneous (design-caused) load: clutter, decorative distraction, inconsistent patterns forcing re-learning, jargon, too many simultaneous decisions, unnecessary required fields. https://lawsofux.com/cognitive-load/
