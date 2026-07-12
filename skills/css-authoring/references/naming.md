@@ -25,6 +25,8 @@ button           { background: var(--accent, var(--color-neutral)); }
 .note-primary   { --accent: var(--color-primary); }
 ```
 
+**Caveat on the family selector:** `[class^="note-"]` matches only when `note-…` is the *first* class in the attribute string, so `class="elevated note-primary"` won't match. If these elements can also carry other classes, use the robust form `[class^="note-"], [class*=" note-"]` (note the leading space in the second).
+
 Why this shape:
 - The **shared thing is the component base** (grouped by the element or a `[class^="note-"]` family), **not the variant**. Grouping by variant (`[class$="-primary"] { --accent: … }`) recreates a utility class — though the substring technique itself is fine, it's just the wrong split here.
 - **Sharing happens through the token** (`--color-primary`), which is the "shared by meaning → custom property" rule. Each explicit class just consumes it.
@@ -42,8 +44,8 @@ A class name should read as what the thing is.
 Name by role/meaning, not appearance — appearance changes and a presentational name becomes a lie:
 
 ```scss
-.red-text .big-bold .left-column        /* becomes wrong when red→orange, in RTL, on restyle */
-.error-message .page-title .sidebar     /* stays true through any restyle */
+.red-text, .big-bold, .left-column      /* becomes wrong when red→orange, in RTL, on restyle */
+.error-message, .page-title, .sidebar   /* stays true through any restyle */
 ```
 
 A genuine utility is the one deliberate exception — it's about its effect and named for that function.

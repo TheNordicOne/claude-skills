@@ -35,7 +35,7 @@ Order properties by concern, with a **blank line between groups** and **no group
 
 ```css
 .card {
-  position: relative;
+  position: sticky;
   inset-block-start: 0;
   z-index: var(--z-raised);
 

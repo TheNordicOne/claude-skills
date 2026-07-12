@@ -27,8 +27,8 @@ A shorthand resets the sub-properties you omit. Use it when you mean the whole g
 .box { background: var(--color-surface); }        /* whole group — also clears background-image/position/size/repeat */
 .box { background-color: var(--color-surface); }  /* one sub-property — leaves an existing background-image intact */
 
-.overlay  { inset: 0; }                 /* mean all four sides → shorthand */
-.dropdown { inset-block-start: 100%; }  /* mean one → longhand */
+.overlay  { inset-block: 0; inset-inline: 0; }   /* all edges via logical shorthands */
+.dropdown { inset-block-start: 100%; }           /* mean one edge → longhand */
 ```
 
 Never `transition: all` — name the properties you animate (it avoids animating unintended changes and the perf cost). `font` likewise forces size+family and resets the rest; for a single change use the longhand.
