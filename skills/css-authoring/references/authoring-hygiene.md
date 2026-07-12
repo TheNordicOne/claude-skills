@@ -10,8 +10,8 @@ A shorthand resets the sub-properties you omit. Use it when you mean the whole g
 
 ## Motion — cheap properties, tokenised, and sparing
 
-Animate compositor-friendly properties (`transform`, `opacity`) rather than layout-triggering ones that force reflow every frame. Take durations and easing from tokens, not scattered magic values. Use motion **sparingly and keep it subtle** — short, small, unobtrusive; restraint is the default, and you don't reach for animation lightly. (`prefers-reduced-motion` is an accessibility concern handled there — this is a cross-reference, not a restatement.)
+Animate compositor-friendly properties (`transform`, `opacity`) rather than layout-triggering ones that force reflow every frame. Take durations and easing from tokens, not scattered magic values. Use motion **sparingly and keep it subtle** — short, small, unobtrusive; restraint is the default, and you don't reach for animation lightly. (`prefers-reduced-motion` is an accessibility concern and out of scope here.)
 
 ## Inline styles — avoid, with one exception
 
-Inline styles can't be reused, carry near-top specificity, sit **unlayered** (so they override the whole cascade-layer system), and can't express pseudo-states or queries. The one legitimate use is passing a **dynamic runtime value** in as a custom property that the stylesheet then consumes — the value is dynamic, the styling stays in CSS.
+Inline styles can't be reused, sit above selector specificity in the cascade and **unlayered** (so they override the whole cascade-layer system), and can't express pseudo-states or queries. The one legitimate use is passing a **dynamic runtime value** in as a custom property that the stylesheet then consumes — the value is dynamic, the styling stays in CSS.

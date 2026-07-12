@@ -5,8 +5,8 @@
 There is no 1:1 property→unit mapping. Pick the unit for what you're trying to achieve, and where several are valid, decide by the behaviour you want rather than a fixed answer.
 
 - **Text sizing defaults to `rem`** — root-relative, so it respects the user's browser font-size/zoom, where `px` would ignore it (an accessibility problem). This is right for virtually all real text; a genuine edge case can override it, but you should be able to name the reason.
-- **`em`** is relative to the *parent's* font-size and compounds through nesting — reach for it only when you actually want something to size relative to its local context.
-- **Otherwise, by intent** — proportional layout, line length, viewport-relative (prefer the dynamic/small viewport units where mobile UI chrome matters). Leave unitless what is unitless (`line-height`, `z-index`); `0` needs no unit.
+- **`em`** resolves against the element's own font-size — and on `font-size` itself that's the inherited value, so it compounds through nesting. Reach for it when you want something to size relative to its local text context.
+- **Otherwise, by intent** — proportional layout, line length, viewport-relative (prefer the dynamic/small viewport units where mobile UI chrome matters). Leave unitless what is unitless (`line-height`, `z-index`); a `0` *length* needs no unit (a zero `time`/`angle` still does).
 
 ## Numbers come from a scale
 
