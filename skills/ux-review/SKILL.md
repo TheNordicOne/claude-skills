@@ -40,9 +40,9 @@ Then apply the usability and form/flow heuristics (see references) for depth.
 
 ---
 
-## AI-generated UI anti-patterns (the centerpiece — check every one)
+## AI-generated UI anti-patterns (the centerpiece)
 
-The dominant failure is *fake completeness*: it looks interactive, but the semantics, states, and non-mouse paths are missing. Grouped for an efficient sweep.
+The dominant failure is *fake completeness*: it looks interactive, but the semantics, states, and non-mouse paths are missing. What follows is a grouped set of the patterns that recur most — treat it as a lens that primes what to look for, **not a closed checklist**. Work the items that apply, but keep reasoning about how *this particular* UI could fail a real user; the catalog exists to sharpen your eye, not to bound it. A UI that passes every item below can still be bad, and new failure shapes appear all the time — if something feels off but isn't listed here, that's still a finding.
 
 ### Group 1 — Fake semantics (looks interactive, isn't accessible)
 - **`div`/`span` as a clickable control** — `onClick` on a `div`/`span` with no `role="button"`, no `tabindex="0"`, no Enter/Space `onKeyDown`. Not focusable, not operable by keyboard, announced as "generic." The single most common generated a11y failure. Real fix: a `<button>`.
@@ -67,8 +67,10 @@ The dominant failure is *fake completeness*: it looks interactive, but the seman
 - **Missing keyboard handlers on custom interactions** — mouse-only `onClick`/drag with no `onKeyDown` equivalent; sliders/reorder with no arrow-key support.
 - **Modals stacked on modals** — a dialog that can open another dialog → z-index and focus-trap conflicts; user can't tell which layer is active or how to escape.
 
-### Group 4 — Single-channel sensory & contrast
-- **Low-contrast "aesthetic" text** — body/placeholder/disabled/secondary text below WCAG AA (4.5:1 normal, 3:1 large). Light-grey-on-white and thin fonts are a signature of AI-styled UI. Verify with a contrast checker.
+### Group 4 — Legibility, contrast & sensory
+- **Undersized type as the default** — small font sizes applied broadly to body and general UI text instead of being reserved for the genuinely secondary cases (legal fine print, dense data tables) where a smaller size is a deliberate, justified choice. Generated UI has a strong tendency to shrink almost everything below a comfortable reading size for a "sleek, compact" look, which hurts legibility for everyone and especially older users, low-vision users, and small or high-density screens. The test is which way the default runs: readable body text should be the norm and smaller text the cherry-picked exception, not the reverse. Flag a design where the baseline reading size is uncomfortably small.
+- **Low-contrast text** — body/placeholder/disabled/secondary text below WCAG AA (4.5:1 normal, 3:1 large). Light-grey-on-white and thin fonts are a signature of AI-styled UI. Verify with a contrast checker.
+- **Low-contrast non-text elements** — contrast is not only a text problem. The boundaries and marks a user relies on to perceive the interface — card borders, dividers, input/field outlines, button edges, icons, focus indicators, chart lines and legends, selected/active states — must be distinguishable too. Generated UI routinely makes these so faint they nearly vanish (a card border a hair off its background, a hairline divider that reads as empty space, a focus ring you can't find). WCAG 1.4.11 asks for 3:1 on the parts of a control or graphic needed to identify it. Flag any structural boundary, control, or state you can barely see.
 - **Color as the only signal** — error = red border only (no icon/text); validity/selection/status/chart series encoded purely by hue; hover that only changes color. Excludes color-blind and low-vision users (WCAG 1.4.1).
 - **No `prefers-reduced-motion` handling** — auto-animations/parallax/transforms with no `@media (prefers-reduced-motion: reduce)` guard; can trigger vestibular symptoms.
 
