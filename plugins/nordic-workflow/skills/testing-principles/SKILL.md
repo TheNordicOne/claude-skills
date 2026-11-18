@@ -32,7 +32,7 @@ Each level has its own job and is complete on its own. Overlap between levels is
   - Small single-rule e2e tests are rebuilt into journeys, not kept.
   - A journey does not cover every case; the lower levels do.
   - A journey proves the real parts work together across the server/process boundary. Cases the frontend decides on its own — already covered by component tests with faked server answers — are not repeated as journey steps.
-  - Don't e2e-test third-party services (e.g. that an external AI or payment provider works). Test your own code that talks to them against a fake at the boundary.
+- **Never test third-party software itself**, on any level: not the database, the framework, libraries or external services (e.g. that the database enforces a unique constraint, that the framework's router or forms work, that an AI or payment provider answers). Test only your own use of them: your migration declares the constraint, your query returns the right rows, your component reacts correctly, your client handles the provider's answers (against a fake at the boundary).
 
 ## Test Data and Start State
 
