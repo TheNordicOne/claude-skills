@@ -2,6 +2,8 @@
 
 Control heights, icon sizes, radii and border widths. Like spacing, they come from a small token set so the same kind of thing always has the same size. Sources in brackets, listed in [sources.md](sources.md). Target sizes live in [states-and-focus.md](states-and-focus.md).
 
+No fixed width or height: content and context decide the size, within minimums, maximums or a `clamp()` range. Only an icon or a square control's own box gets a fixed size. `[reasoned]`
+
 ## Contents
 
 - Control heights
@@ -12,7 +14,7 @@ Control heights, icon sizes, radii and border widths. Like spacing, they come fr
 
 ## Control heights
 
-- A few named heights (for example small, medium, large), in rem so they grow with the user's font size. [WCAG 1.4.4; `[reasoned]`]
+- A few named heights (for example small, medium, large), in rem so they grow with the user's font size. Set them as minimum heights, so a control still grows when its text wraps. [WCAG 1.4.4; `[reasoned]`]
 - Controls that sit in one row share one height, so their text and edges line up. `[reasoned]`
 - Heights still meet the minimum target size. See [states-and-focus.md](states-and-focus.md).
 
@@ -37,5 +39,6 @@ Control heights, icon sizes, radii and border widths. Like spacing, they come fr
 
 - Are heights, icon sizes, radii and border widths all from tokens?
 - Do controls in one row share a height?
+- Is any width or height fixed that is not an icon or a square control's box?
 - Do icons and text sizes pair consistently?
 - Are nested radii smaller than their container's?
