@@ -4,7 +4,7 @@ One markdown file for the whole review. Git-ignored, never committed. Written so
 
 ## Rules
 
-- Keep it in the location agreed in the briefing; add it to `.git/info/exclude`.
+- Keep it in the location agreed in the briefing; add it to the file `git rev-parse --git-path info/exclude` prints (this also works in linked worktrees).
 - One section per finding, in walkthrough order (severity first, then area).
 - The verifier fills verdicts; the coordinator fills decisions during the walkthrough, right away.
 - Cross-cutting decisions (a new rule) go into **Decisions that apply everywhere** and are referenced from each later finding they touch.
@@ -40,6 +40,7 @@ One markdown file for the whole review. Git-ignored, never committed. Written so
 - **Severity / confidence:** Medium / Confirmed
 - **Fix direction:** <direction>
 - **Verdict:** Open | Fixed (<commit>) | Rejected
+- **External copy:** n/a | pending until final publish | published
 - **Verifier notes:** <reason, history found, options A/B/C, recommendation>
 - **Decision:** <owner decision, date> | pending
 - **Implemented:** <branch/commit> | pending
