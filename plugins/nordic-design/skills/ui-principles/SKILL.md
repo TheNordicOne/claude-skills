@@ -43,9 +43,10 @@ Rules for the foundations every screen is built on. Each rule has a source in [r
 - **Headings:** clearly more space above than below (about twice, `[reasoned]`); one h1 per page.
 - **Line length** limits are for paragraphs, not for one or two sentences of UI text.
 - **Fluid type** may bring levels closer on small screens; only levels that stack must stay distinct.
-- **Layout:** intrinsic first; breakpoints only for structural switches, from a small content-driven set. Dynamic parts are ordered by stability from the aligned edge; fixed parts never hide.
+- **Layout:** intrinsic first; breakpoints only for structural switches, from a small content-driven set. Dynamic parts are ordered by stability from the aligned edge; fixed parts stay visible and usable.
 - **Colour:** selected and current states use the action colour (`[reasoned]`). Contrast is computed, never estimated.
 - **States** need a second cue beyond a faint fill.
+- **Disabled** only while an action is running or with a visible reason how to enable it; controls the person may never use are hidden.
 - **Motion:** reduced motion removes movement, not delays.
 - **Edges:** faint edges on non-interactive containers are a valid choice when spacing carries the grouping.
 

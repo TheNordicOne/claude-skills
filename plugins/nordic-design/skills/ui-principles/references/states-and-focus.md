@@ -37,7 +37,14 @@ Every interactive element must show what it is, what it is doing, and where focu
 
 ## Disabled
 
-- Disabled controls are exempt from contrast rules but must still read as controls. Use them only when truly needed and explain why a control is unavailable.
+- Avoid disabled controls. A disabled control gives no feedback and leaves people guessing. [Smashing, disabled buttons; Vivid, disabled buttons]
+- Disable only when:
+  1. the action is temporarily unavailable, for example it is already running or loading, or
+  2. the person can make it available, and a visible reason next to it says how. [Cloudscape disabled states]
+- Use `aria-disabled`, so the control stays focusable and explains itself when used. [Smashing, disabled buttons; Vivid, disabled buttons]
+- A control the person may never use, for example for lack of permission, is hidden instead. [Smashing, hidden vs disabled; Cloudscape disabled states]
+- Forms validate on submit instead of disabling the submit button. [Smashing, disabled buttons]
+- Disabled controls are exempt from contrast rules but must still read as controls. [WCAG 1.4.3]
 
 ## Review checks
 
@@ -45,3 +52,4 @@ Every interactive element must show what it is, what it is doing, and where focu
 - Does each state have a second cue, or a fill with 3:1?
 - Is focus visible, unobscured and consistent?
 - Targets at least 24px?
+- Is every disabled control temporary or explained next to it?

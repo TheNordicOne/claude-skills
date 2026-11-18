@@ -9,7 +9,7 @@ Let content and available space decide the layout. Sources in brackets, listed i
 - Widths
 - Reflow
 - Placement order of dynamic parts
-- Fixed parts never hide
+- Fixed parts stay visible
 - Review checks
 
 ## Intrinsic first
@@ -46,9 +46,11 @@ Parts that not every item or view has (badges, extra actions, optional meta) are
 - The same spot then always holds the same kind of thing, rows stay steady, and differences are easy to scan.
 - Applies to list rows, bars and toolbars, also across the views of one page.
 
-## Fixed parts never hide
+## Fixed parts stay visible
 
-- Primary UI elements stay visible when their content is missing: tabs, main controls, a list's toolbar (search, sort, filter), its head and columns. They stay usable and show an empty state; disable a control only when using it is impossible, and say why. [NN/g empty states; `[reasoned]`]
+- Primary UI elements stay visible and usable when their content is missing: tabs, main controls, a list's toolbar (search, sort, filter), its head and columns. They show an empty state. [NN/g empty states; `[reasoned]`]
+- Disabling one of them follows the rule in [states-and-focus.md](states-and-focus.md#disabled).
+- A control the person may never use, for example for lack of permission, is hidden, not disabled. [Smashing, hidden vs disabled; Cloudscape disabled states]
 - Secondary information may stay hidden when empty.
 - Why: the layout stays stable; nothing moves between the empty and the filled view. [web.dev Cumulative Layout Shift]
 
@@ -58,5 +60,6 @@ Parts that not every item or view has (badges, extra actions, optional meta) are
 - Are minimums derived from content?
 - Is every breakpoint from the small named set, and does each switch structure?
 - Does anything need horizontal scrolling at 320px?
+- Do fixed parts stay visible and usable when empty?
 - Are optional parts ordered by stability from the aligned edge?
 - Does any primary part disappear when its content is empty?

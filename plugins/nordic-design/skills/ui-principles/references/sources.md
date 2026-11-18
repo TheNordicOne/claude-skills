@@ -1,6 +1,6 @@
 # Sources and attribution
 
-Every rule in this skill is paraphrased from the sources below; the short names in brackets in each reference file point here. When reporting a finding, cite the specific criterion or page. Rules tagged `[reasoned]` in the reference files are derived from the cited principles rather than stated by a source: the skip rule's step arithmetic, the "about twice" heading ratio, one definition per heading level, the 1rem body-text floor, the action colour for selected states, faint edges on non-interactive containers, delays vs motion, the placement order of dynamic parts, fixed parts never hiding, and the size rules marked so. Say so when citing them.
+Every rule in this skill is paraphrased from the sources below; the short names in brackets in each reference file point here. When reporting a finding, cite the specific criterion or page. Rules tagged `[reasoned]` in the reference files are derived from the cited principles rather than stated by a source: the skip rule's step arithmetic, the "about twice" heading ratio, one definition per heading level, the 1rem body-text floor, the action colour for selected states, faint edges on non-interactive containers, delays vs motion, the placement order of dynamic parts, fixed parts staying visible, and the size rules marked so. Say so when citing them.
 
 ## Contents
 
@@ -16,6 +16,7 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 | W3C WCAG 2.2 Understanding docs, WAI tutorials | W3C Document License | Quotable with attribution. |
 | Material Design 3, Carbon, Atlassian | Vendor documentation | Cite/link; values are examples, not mandates. |
 | Every Layout, Utopia, Practical Typography, Baymard, Smashing | Proprietary | Cite/link only. |
+| Cloudscape (AWS), Vivid (Vonage) | Vendor documentation | Cite/link only. |
 | MDN | CC BY-SA 2.5 | Attribute when quoting. |
 
 ## Source index
@@ -81,6 +82,10 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Material states — https://m3.material.io/foundations/interaction/states/overview
 - NN/g toggle switch guidelines — https://www.nngroup.com/articles/toggle-switch-guidelines/ (clear state)
 - NN/g visibility of system status — https://www.nngroup.com/articles/visibility-system-status/
+- Smashing, disabled buttons — https://www.smashingmagazine.com/2021/08/frustrating-design-patterns-disabled-buttons/
+- Smashing, hidden vs disabled — https://www.smashingmagazine.com/2024/05/hidden-vs-disabled-ux/
+- Cloudscape disabled states — https://cloudscape.design/patterns/general/disabled-and-read-only-states/
+- Vivid, disabled buttons — https://apps.vivid.vonage.com/whats-new/why-disabled-buttons-often-lead-to-poor-ux/
 
 **Motion**
 - NN/g animation duration — https://www.nngroup.com/articles/animation-duration/
