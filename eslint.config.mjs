@@ -1,4 +1,5 @@
 import eslint from '@eslint/js';
+import nx from '@nx/eslint-plugin';
 import {
   configs as ngConfigs,
   processInlineTemplates,
@@ -7,11 +8,19 @@ import prettierConfig from 'eslint-config-prettier';
 import { configs as jsoncConfigs } from 'eslint-plugin-jsonc';
 import globals from 'globals';
 import { configs as tsConfigs } from 'typescript-eslint';
-import boundaries from 'eslint-plugin-boundaries';
 import { defineConfig } from 'eslint/config';
 
+const TYPES_BELOW_FEATURE = [
+  'type:feature',
+  'type:ui',
+  'type:data-access',
+  'type:util',
+  'type:contracts',
+];
+
 export default defineConfig(
-  { ignores: ['.angular/*', 'dist/*'] },
+  { ignores: ['.angular/*', '.nx/*', 'dist/*'] },
+  ...nx.configs['flat/base'],
   {
     name: 'JavaScript',
     files: ['**/*.js'],
@@ -52,22 +61,10 @@ export default defineConfig(
         },
       ],
       '@typescript-eslint/no-unnecessary-type-parameters': 'off',
-      '@angular-eslint/directive-selector': [
-        'error',
-        {
-          type: 'attribute',
-          prefix: 'ngxfb',
-          style: 'camelCase',
-        },
-      ],
-      '@angular-eslint/component-selector': [
-        'error',
-        {
-          type: 'element',
-          prefix: 'ngxfb',
-          style: 'kebab-case',
-        },
-      ],
+      // Selector prefixes are set per module: each module's own eslint.config.mjs
+      // configures '@angular-eslint/component-selector' (element, kebab-case) and
+      // '@angular-eslint/directive-selector' (attribute, camelCase) with its prefix
+      // of at most 4 characters.
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
       '@angular-eslint/component-class-suffix': 'off',
       '@typescript-eslint/no-explicit-any': ['error', { fixToUnknown: true }],
@@ -134,11 +131,35 @@ export default defineConfig(
   },
   {
     name: 'Tests',
-    files: ['**/*.spec.ts', '**/*.cy.ts'],
+    files: ['**/*.spec.ts', '**/*.e2e.ts'],
     rules: {
       'no-console': 'off',
       '@typescript-eslint/consistent-type-assertions': 'off',
       '@typescript-eslint/no-extraneous-class': 'off',
+    },
+  },
+  {
+    // Harnesses and stand-ins in `testing` entry points must never reach a bundle.
+    name: 'Testing entry points',
+    files: ['**/*.ts'],
+    ignores: [
+      '**/*.spec.ts',
+      '**/*.e2e.ts',
+      '**/test-setup.ts',
+      '**/testing/**',
+    ],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['**/testing', '**/testing/**'],
+              message: 'Only tests may import a testing entry point.',
+            },
+          ],
+        },
+      ],
     },
   },
   {
@@ -152,87 +173,42 @@ export default defineConfig(
   },
   {
     name: 'Boundaries',
-    plugins: {
-      boundaries,
-    },
-    settings: {
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
-      'boundaries/dependency-nodes': ['import', 'dynamic-import'],
-      'boundaries/include': ['projects/**/lib/**/*', 'projects/**/test/**/*'],
-      'boundaries/elements': [
-        {
-          type: 'shared',
-          mode: 'full',
-          pattern: ['projects/shared/**/*'],
-        },
-        {
-          type: 'component-test',
-          mode: 'full',
-          capture: ['project'],
-          pattern: [
-            'projects/**/lib/*/**/*.cy.ts',
-            'projects/**/lib/*/**/*.spec.ts',
-          ],
-        },
-        {
-          type: 'project',
-          mode: 'full',
-          capture: ['project'],
-          pattern: ['projects/**/lib/*/**/*', 'projects/**/lib/*'],
-        },
-        {
-          type: 'core',
-          mode: 'full',
-          pattern: ['projects/**/lib/core/**/*'],
-        },
-        {
-          type: 'test',
-          mode: 'full',
-          pattern: ['projects/**/test/*/**/*', 'projects/**/test/*'],
-        },
-        {
-          type: 'index',
-          mode: 'file',
-          pattern: ['index.ts'],
-        },
-      ],
-    },
+    files: ['**/*.ts', '**/*.js'],
     rules: {
-      'boundaries/no-unknown': ['error'],
-      'boundaries/no-unknown-files': ['error'],
-      'boundaries/element-types': [
+      '@nx/enforce-module-boundaries': [
         'error',
         {
-          default: 'disallow',
-          rules: [
+          enforceBuildableLibDependency: true,
+          // Every project carries a scope (its area) and a type (what it holds).
+          // A dependency must pass every rule its source's tags select.
+          depConstraints: [
+            // A scope uses itself and the shared libraries, and reaches another
+            // scope only through its contracts. Add one rule per scope:
+            // { sourceTag: 'scope:<area>', onlyDependOnLibsWithTags: ['scope:<area>', 'scope:shared', 'type:contracts'] }
             {
-              from: ['shared'],
-              allow: ['shared'],
+              sourceTag: 'scope:shared',
+              onlyDependOnLibsWithTags: ['scope:shared'],
+            },
+            // An app or feature uses what lies below it; contracts use nothing.
+            {
+              sourceTag: 'type:app',
+              onlyDependOnLibsWithTags: TYPES_BELOW_FEATURE,
             },
             {
-              from: ['project'],
-              allow: ['shared', ['project', { project: '${from.project}' }]],
+              sourceTag: 'type:feature',
+              onlyDependOnLibsWithTags: TYPES_BELOW_FEATURE,
             },
             {
-              from: ['core'],
-              allow: ['shared'],
+              sourceTag: 'type:ui',
+              onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
             },
             {
-              from: ['test'],
-              allow: ['test', 'root', 'core', 'project', 'shared', 'index'],
+              sourceTag: 'type:data-access',
+              onlyDependOnLibsWithTags: ['type:data-access', 'type:util'],
             },
-            {
-              from: ['component-test'],
-              allow: [
-                'test',
-                'shared',
-                ['project', { project: '${from.project}' }],
-              ],
-            },
+            { sourceTag: 'type:util', onlyDependOnLibsWithTags: ['type:util'] },
+            { sourceTag: 'type:contracts', onlyDependOnLibsWithTags: [] },
+            { sourceTag: 'type:test', onlyDependOnLibsWithTags: ['*'] },
           ],
         },
       ],

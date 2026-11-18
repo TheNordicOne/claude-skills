@@ -15,7 +15,7 @@ Rules for Angular v20+ component development. For signals see angular-signals, f
 - **Do NOT set `standalone: true`** — it's the default in v20+
 - `ChangeDetectionStrategy.OnPush` in every `@Component` decorator
 - Prefer inline templates for small components
-- Prefer Reactive forms over Template-driven
+- Forms: prefer Signal Forms (`@angular/forms/signals`), then Reactive, then Template-driven
 - Keep components small and focused on a single responsibility
 
 ## Inputs, Outputs & Queries
@@ -30,7 +30,7 @@ Rules for Angular v20+ component development. For signals see angular-signals, f
 
 ## Selectors
 
-- Use the project's configured prefix (kebab-case for components, camelCase for directives)
+- Each module or library uses its own prefix of at most 4 characters that identifies its origin (kebab-case for components, camelCase for directives)
 
 ## Class Member Ordering
 
