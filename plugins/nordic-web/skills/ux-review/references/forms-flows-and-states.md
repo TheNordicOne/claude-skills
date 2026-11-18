@@ -48,7 +48,12 @@ Treat this as a priming lens, **not a closed checklist** — apply what fits the
 - **Undrawn states follow the product's existing patterns** — when a design shows no loading, error or empty state, reuse the product's existing pattern for it; never invent a new one. (NN/g consistency and standards)
 
 ## Controls and option labels
-- **Disable controls rarely** — leave a control usable and, when it is used, say why nothing happens and what would help. A disabled control explains nothing and usually cannot be focused. (Smashing, disabled buttons)
+- **Avoid disabled controls** — a disabled control gives no feedback, usually cannot be focused, and leaves people guessing what is missing. Disabling is fine only when: (Smashing, disabled buttons; Cloudscape disabled states; Vivid, disabled buttons)
+  1. the action is temporarily unavailable, for example it is already running or loading, or
+  2. the person can make it available, and a visible reason next to the control says how.
+- **Use `aria-disabled`, not `disabled`** — the control stays focusable and, when used, says why nothing happens. (Smashing, disabled buttons; Vivid, disabled buttons)
+- **Hide what the person may never use** — a control blocked by permissions is hidden, not disabled. (Smashing, hidden vs disabled; Cloudscape disabled states)
+- **Forms validate on submit** — keep the submit button usable and show errors on submit, instead of blocking it until the form is valid. (Smashing, disabled buttons; Vivid, disabled buttons)
 - **Option labels are positive and conventional** — name what an option does ("Show archived"), and carry on/off state through a switch or checkbox. No "not"/"without" labels; negated labels create double negatives when switched off. (NN/g toggle switches; deceptive.design trick wording)
 
 ## Mobile touch targets

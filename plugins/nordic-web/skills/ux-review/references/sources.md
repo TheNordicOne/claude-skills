@@ -13,6 +13,7 @@ All checklist entries in this skill are paraphrased from the sources below. When
 | Harry Brignull / deceptive.design | Taxonomy is de-facto standard, adopted by regulators | Credit Harry Brignull / deceptive.design; verify current site terms before copying wording. |
 | W3C WCAG 2.2 "Understanding" docs | W3C Document License | Quotable with attribution. |
 | arXiv 2502.13499 "Deception at Scale" | Academic preprint | Cite. |
+| Smashing Magazine, Cloudscape (AWS), Vivid (Vonage) | Proprietary articles and vendor documentation | Cite/link only; paraphrase. |
 
 ## Source index
 **Nielsen / NN.g**
@@ -52,12 +53,17 @@ All checklist entries in this skill are paraphrased from the sources below. When
 - https://arxiv.org/abs/2502.13499 · https://arxiv.org/html/2502.13499v2
 - https://dl.acm.org/doi/10.1145/3744257.3744266 — ACM W4A 2025, LLM-generated inaccessible UI
 - https://frontendmasters.com/blog/ai-generated-ui-is-inaccessible-by-default/
-- https://www.smashingmagazine.com/2021/08/frustrating-design-patterns-disabled-buttons/
 - https://www.smashingmagazine.com/2022/08/error-messages-ux-design/
 - https://optimiseordie.substack.com/p/crimes-of-ux-21-placeholder-labels
 - https://www.boia.org/blog/accessibility-tips-be-cautious-when-using-autofocus
 - https://www.sitepoint.com/scrolljacking-accessibility/
 - https://modall.ca/blog/vibe-coded-app-breaks-production
+
+**Disabled controls**
+- https://www.smashingmagazine.com/2021/08/frustrating-design-patterns-disabled-buttons/ — Smashing, disabled buttons
+- https://www.smashingmagazine.com/2024/05/hidden-vs-disabled-ux/ — Smashing, hidden vs disabled
+- https://cloudscape.design/patterns/general/disabled-and-read-only-states/ — Cloudscape disabled states
+- https://apps.vivid.vonage.com/whats-new/why-disabled-buttons-often-lead-to-poor-ux/ — Vivid, disabled buttons
 
 ## Verify-in-context notes
 Two Part-B entries are synthesized from the broader "AI skips error/edge handling" findings rather than a study isolating their AI-generation frequency — treat as well-established UX failures, not single-source-confirmed AI tells:

@@ -54,7 +54,7 @@ The dominant failure is *fake completeness*: it looks interactive, but the seman
 - **Images without meaningful `alt`, or decorative images not hidden** — `<img>` with no `alt` attribute at all (vs. intentional `alt=""`); decorative SVG/icons announced because not `aria-hidden="true"`.
 
 ### Group 2 — Missing states & feedback (the "happy path only" tell)
-- **Disabled submit with no explanation** — a `disabled` primary button gated on validation, with no adjacent text/tooltip naming what's missing. Disabled buttons also aren't focusable, so keyboard users can't even inspect them. Prefer keep-enabled + validate-on-submit + error summary.
+- **Disabled submit with no explanation** — a `disabled` primary button gated on validation, with no adjacent text/tooltip naming what's missing. Disabled buttons also aren't focusable, so keyboard users can't even inspect them. Prefer keep-enabled + validate-on-submit + error summary; where disabling is justified, use `aria-disabled` with a visible reason (see the disabled-control rules in `references/forms-flows-and-states.md`).
 - **Toast-only error reporting that auto-dismisses** — validation/API errors surfaced *only* as a timed toast, far from the field and gone before it can be read; no inline error bound via `aria-describedby`, no persistent summary, possibly not a live region.
 - **Infinite spinner with no timeout / no error path** — loading state entered on request start but no `catch`/error branch and no timeout → a failed request spins forever; user can't tell "loading" from "broken."
 - **Silent failure / no error boundary** — `fetch`/mutation with no `.catch`, no error state rendered, no `try/catch` around parsing; a form that POSTs and shows nothing on failure. User thinks it worked.
