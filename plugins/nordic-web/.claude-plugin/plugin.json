@@ -1,0 +1,8 @@
+{
+  "name": "nordic-web",
+  "description": "Accessibility, semantic HTML, and UX review skills, plus the a11y-reviewer and ux-reviewer agents.",
+  "author": {
+    "name": "Alexander Pahn"
+  },
+  "license": "MIT"
+}

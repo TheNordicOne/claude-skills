@@ -1,0 +1,8 @@
+{
+  "name": "nordic-css",
+  "description": "CSS authoring, modern features, and layout skills, plus the css-reviewer agent.",
+  "author": {
+    "name": "Alexander Pahn"
+  },
+  "license": "MIT"
+}

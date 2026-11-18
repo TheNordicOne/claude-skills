@@ -1,0 +1,8 @@
+{
+  "name": "nordic-workflow",
+  "description": "Process skills: TDD, testing principles, grill-me, war-game, breaker, mini-alex, triage, ubiquitous language, architecture review.",
+  "author": {
+    "name": "Alexander Pahn"
+  },
+  "license": "MIT"
+}

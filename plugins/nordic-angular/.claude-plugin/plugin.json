@@ -1,0 +1,8 @@
+{
+  "name": "nordic-angular",
+  "description": "Angular components, services, signals, tests, and ESLint skills, plus the angular-reviewer agent.",
+  "author": {
+    "name": "Alexander Pahn"
+  },
+  "license": "MIT"
+}

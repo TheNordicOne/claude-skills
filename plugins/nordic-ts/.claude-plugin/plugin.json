@@ -1,0 +1,8 @@
+{
+  "name": "nordic-ts",
+  "description": "TypeScript style and type-safety skill, plus the typescript-reviewer and general-reviewer agents.",
+  "author": {
+    "name": "Alexander Pahn"
+  },
+  "license": "MIT"
+}

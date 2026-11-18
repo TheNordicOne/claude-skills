@@ -1,0 +1,8 @@
+{
+  "name": "nordic-core",
+  "description": "Shared brutal-review methodology. Required by every nordic reviewer agent.",
+  "author": {
+    "name": "Alexander Pahn"
+  },
+  "license": "MIT"
+}
