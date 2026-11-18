@@ -16,7 +16,7 @@ Colour carries meaning through roles, and it must be perceivable. Sources in bra
 - Non-text parts needed to identify a control or its state (input edges, icons, focus indicators, selected marks): at least 3:1 against adjacent colours. [WCAG 1.4.11]
 - Compute every pair yourself, in every theme. Documented ratios are often stale.
 - Placeholder and disabled text: placeholder must meet 4.5:1; disabled controls are exempt, but stay recognisable. [WCAG 1.4.3]
-- APCA (the candidate WCAG 3 method) can inform choices for large and thin text; WCAG 2.2 ratios remain the conformance bar. [APCA]
+- APCA (proposed for WCAG 3) can inform choices for large and thin text; WCAG 2.2 ratios remain the conformance bar. [APCA]
 
 ## Colour roles
 
@@ -26,7 +26,7 @@ Colour carries meaning through roles, and it must be perceivable. Sources in bra
 
 ## Selected and current states
 
-- A selected or current state (current nav item, selected row, active tab) is an action state. Use the action colour.
+- A selected or current state (current nav item, selected row, active tab) is an action state. Use the action colour. [Material colour roles; `[reasoned]`]
 - Do not use a brand accent that sits close to the error colour. Users read a red-ish selected item as an error.
 
 ## Colour is never the only cue

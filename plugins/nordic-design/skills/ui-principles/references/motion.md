@@ -23,12 +23,12 @@ Motion explains change; it never decorates. Sources in brackets, listed in [sour
 
 ## Reduced motion
 
-- Honour `prefers-reduced-motion: reduce`: remove or replace movement (slides, zooms, parallax) with a fade or an instant change. [MDN prefers-reduced-motion; WCAG 2.3.3]
+- Honour `prefers-reduced-motion: reduce`: remove or replace movement (slides, zooms, parallax) with a fade or an instant change. [MDN prefers-reduced-motion; WCAG 2.3.3 (AAA)]
 - Keep feedback: an instant state change still tells the user something happened.
 
 ## Delays are not motion
 
-- Delays (hover intent before a menu opens, a short wait before showing a loading indicator) are timing, not movement. Reduced motion removes movement, not delays.
+- Delays (hover intent before a menu opens, a short wait before showing a loading indicator) are timing, not movement. Reduced motion removes movement, not delays. [MDN prefers-reduced-motion: the query is about motion; `[reasoned]`]
 - Hover-intent delays (about 0.3–0.5 s of resting pointer) prevent menus and tooltips from opening when the pointer only passes over them. [NN/g timing of exposing content; NN/g mega menus]
 - Loading indicators: none for responses under about 1s, an indicator after that, progress for long waits. [NN/g response time limits]
 

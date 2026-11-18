@@ -17,7 +17,7 @@ Type carries hierarchy and readability. Sources in brackets, listed in [sources.
 - Heading levels follow the structure, not the look. Do not skip levels for styling. [WCAG 1.3.1, 2.4.6]
 - A decorative name above the h1 (a section or app name, a banner) is not a heading. Mark it up as plain text or a landmark label.
 - Decorative identity elements are less important than the page title and should not be larger than it. [NN/g visual hierarchy]
-- One definition per heading level: the element and its class share one rule. Add a class only where the level and the look must differ. Two definitions for one level drift apart.
+- One definition per heading level: the element and its class share one rule. Add a class only where the level and the look must differ. Two definitions for one level drift apart. `[reasoned]`
 
 ## Type scale
 
@@ -40,7 +40,7 @@ Type carries hierarchy and readability. Sources in brackets, listed in [sources.
 
 ## Size, leading and resizing
 
-- Body text at least 1rem; avoid shrinking general UI text below that for a compact look.
+- Body text at least 1rem (the browser default the user can change); avoid shrinking general UI text below that for a compact look. [WCAG 1.4.4; `[reasoned]` for the 1rem floor]
 - Leading about 1.4–1.6 for body text, tighter for large headings. [Butterick; WCAG 1.4.12]
 - Text must survive 200 % zoom and the WCAG text-spacing overrides without loss. [WCAG 1.4.4, 1.4.12]
 

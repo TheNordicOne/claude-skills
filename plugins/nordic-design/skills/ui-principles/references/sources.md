@@ -1,6 +1,6 @@
 # Sources and attribution
 
-Every rule in this skill is paraphrased from the sources below; the short names in brackets in each reference file point here. When reporting a finding, cite the specific criterion or page. A few rules are derived from the cited principles rather than stated by a source: the skip rule's step arithmetic (Gestalt proximity), one definition per heading level, the action colour for selected states (colour roles), and delays vs motion (reduced-motion scope). Treat them as reasoned rules and say so when citing them.
+Every rule in this skill is paraphrased from the sources below; the short names in brackets in each reference file point here. When reporting a finding, cite the specific criterion or page. Rules tagged `[reasoned]` in the reference files are derived from the cited principles rather than stated by a source: the skip rule's step arithmetic, the "about twice" heading ratio, one definition per heading level, the 1rem body-text floor, the action colour for selected states, faint edges on non-interactive containers, delays vs motion, the placement order of dynamic parts, fixed parts never hiding, and the size rules marked so. Say so when citing them.
 
 ## Licensing summary
 
@@ -24,14 +24,18 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Laws of UX: Law of Similarity — https://lawsofux.com/law-of-similarity/
 - NN/g visual hierarchy — https://www.nngroup.com/articles/visual-hierarchy-ux-definition/
 - NN/g flat design signifiers — https://www.nngroup.com/articles/flat-ui-less-attention-cause-uncertainty/ · https://www.nngroup.com/articles/flat-design/
-- NN/g visibility of system status (heuristic 1) — https://www.nngroup.com/articles/ten-usability-heuristics/
+- NN/g ten usability heuristics (1 visibility of system status, 4 consistency and standards) — https://www.nngroup.com/articles/ten-usability-heuristics/
+- Laws of UX: Jakob's Law — https://lawsofux.com/jakobs-law/
+- NN/g consistency and standards — https://www.nngroup.com/articles/consistency-and-standards/
+- NN/g empty states — https://www.nngroup.com/articles/empty-state-interface-design/
+- web.dev Cumulative Layout Shift — https://web.dev/articles/cls
 
 **Spacing systems**
 - Carbon spacing — https://carbondesignsystem.com/elements/spacing/overview/
 - Atlassian spacing — https://atlassian.design/foundations/spacing
 - Material layout spacing — https://m3.material.io/foundations/layout/understanding-layout/spacing
 - Material dividers — https://m3.material.io/components/divider/guidelines
-- Design Tokens Community Group format, first stable version 2025.10 — https://www.designtokens.org/tr/2025.10/format/
+- Design Tokens Community Group format 2025.10 — https://www.designtokens.org/tr/2025.10/format/
 - NN/g white space in form design — https://www.nngroup.com/articles/form-design-white-space/
 
 **Typography**
@@ -47,6 +51,12 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Carbon type — https://carbondesignsystem.com/elements/typography/type-sets/
 - W3C WAI headings tutorial — https://www.w3.org/WAI/tutorials/page-structure/headings/
 - MDN heading elements — https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements
+
+**Sizes**
+- Carbon icon sizes — https://carbondesignsystem.com/elements/icons/usage/
+- Material corner radius scale — https://m3.material.io/styles/shape/corner-radius-scale
+- Atlassian radius tokens — https://atlassian.design/foundations/radius
+- Atlassian border tokens — https://atlassian.design/foundations/border
 
 **Colour**
 - Material colour roles — https://m3.material.io/styles/color/roles

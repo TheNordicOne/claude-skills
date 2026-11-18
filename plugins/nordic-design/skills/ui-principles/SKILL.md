@@ -17,7 +17,7 @@ metadata:
 
 Rules for the foundations every screen is built on. Each rule has a source in [references/sources.md](references/sources.md). For component- and flow-level usability, use `nordic-web:ux-review`; for CSS mechanics, the `nordic-css` skills.
 
-**How to use:** read only the area you are working on. When reviewing, cite the rule and its source in each finding; a rule here that says something is fine is as binding as one that flags a problem.
+**How to use:** read only the area you are working on. When reviewing, cite the rule and its source in each finding; a rule here that says something is fine is as binding as one that flags a problem. Rules tagged `[reasoned]` are derived from the cited principles, not stated by a source; say so when citing them.
 
 ## Areas
 
@@ -26,28 +26,34 @@ Rules for the foundations every screen is built on. Each rule has a source in [r
 | Spacing | Setting gaps, padding, margins, spacing tokens, grouping | [references/spacing.md](references/spacing.md) |
 | Typography | Type scales, headings, line length, fluid type | [references/typography.md](references/typography.md) |
 | Colour | Contrast, colour roles, state colours | [references/colour.md](references/colour.md) |
-| Layout | Widths, grids, breakpoints, container queries | [references/layout.md](references/layout.md) |
+| Layout | Widths, grids, breakpoints, container queries, order of dynamic parts, fixed parts | [references/layout.md](references/layout.md) |
+| Sizes | Control heights, icon sizes, radii, border widths | [references/sizes.md](references/sizes.md) |
 | States and focus | Hover, focus, selected, disabled, target size | [references/states-and-focus.md](references/states-and-focus.md) |
 | Motion | Transitions, durations, reduced motion, delays | [references/motion.md](references/motion.md) |
 | Elevation | Shadows, layers, borders, container edges | [references/elevation.md](references/elevation.md) |
 
+## Consistency
+
+- Each kind of use case has one way to be handled. The same kind of list is never shown two ways; the same kind of interaction is never done two ways. [NN/g consistency and standards; Laws of UX, Jakob's Law]
+- Judge "the same kind" by intention, not by looks. Things that look or sound alike can serve different intentions and may need different designs. There is no blanket rule forcing everything down one path.
+
 ## The core rules at a glance
 
 - **Spacing:** nested grouping levels never use neighbouring scale steps; space between groups is clearly bigger than inside.
-- **Headings:** about twice the space above as below; one h1 per page.
+- **Headings:** clearly more space above than below (about twice, `[reasoned]`); one h1 per page.
 - **Line length** limits are for paragraphs, not for one or two sentences of UI text.
 - **Fluid type** may bring levels closer on small screens; only levels that stack must stay distinct.
-- **Layout:** intrinsic first; breakpoints only for structural switches, from a small content-driven set.
-- **Colour:** selected and current states use the action colour. Contrast is computed, never estimated.
+- **Layout:** intrinsic first; breakpoints only for structural switches, from a small content-driven set. Dynamic parts are ordered by stability from the aligned edge; fixed parts never hide.
+- **Colour:** selected and current states use the action colour (`[reasoned]`). Contrast is computed, never estimated.
 - **States** need a second cue beyond a faint fill.
 - **Motion:** reduced motion removes movement, not delays.
-- **Edges:** faint container edges are a valid choice when spacing carries the grouping.
+- **Edges:** faint edges on non-interactive containers are a valid choice when spacing carries the grouping.
 
 ## Common mistakes
 
 | Mistake | Instead |
 |---|---|
-| Item gap 12, group gap 16 | Group gap skips a step: 24 or more |
+| Item gap 0.75rem (12px), group gap 1rem (16px) | Group gap skips a step: 1.5rem (24px) or more |
 | Thin borders to separate cramped groups | Give the groups more space |
 | Flagging a two-line label for line length | Line length applies to paragraphs |
 | Decorative banner larger than the h1 | Banner smaller; the h1 leads |

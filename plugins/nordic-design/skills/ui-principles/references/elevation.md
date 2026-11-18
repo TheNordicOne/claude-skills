@@ -17,8 +17,8 @@ Elevation tells the user what sits above what. Edges define surfaces. Sources in
 
 ## Edges and borders
 
-- Faint, unobtrusive container edges can be a deliberate choice. When spacing carries the grouping, a faint edge is fine; do not demand stronger borders. [Gestalt proximity, NN/g; NN/g flat design signifiers]
-- Edges that identify a control (input fields, toggles) are different: they need 3:1 contrast. [WCAG 1.4.11]
+- Faint, unobtrusive edges on **non-interactive** containers can be a deliberate choice. When spacing carries the grouping, a faint edge is fine; do not demand stronger borders. [Gestalt proximity; Gestalt common region; `[reasoned]`]
+- Edges that identify a control (input fields, toggles) are different: they need 3:1 contrast, and weak signifiers on interactive elements cause uncertainty. [WCAG 1.4.11; NN/g flat design signifiers]
 - Prefer one cue per boundary: a shadow, a border or a surface change, not all three.
 
 ## Dark themes

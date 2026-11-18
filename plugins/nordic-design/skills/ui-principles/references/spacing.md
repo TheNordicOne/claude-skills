@@ -23,7 +23,7 @@ Space is the primary grouping tool. Things close together read as one group; spa
 - Nested grouping levels never use neighbouring steps. An outer level skips at least one step. [Gestalt proximity, NN/g]
   - Item gap 0.5rem (8) → group gap at least 1rem (16), not 0.75rem (12).
   - Item gap 0.75rem (12) → group gap at least 1.5rem (24), not 1rem (16).
-- Why: neighbouring steps differ by 25–50 %. At a glance the eye does not separate them, so the levels merge.
+- Why: neighbouring steps differ by only a third to a half (8→12, 16→24). At a glance the eye does not separate them, so the levels merge. `[reasoned]`
 
 ## Between groups vs inside groups
 
@@ -32,13 +32,13 @@ Space is the primary grouping tool. Things close together read as one group; spa
 
 ## Headings
 
-- A heading belongs to the content below it. Give it about twice as much space above as below. [Gestalt proximity; Butterick, headings]
+- A heading belongs to the content below it. Give it clearly more space above than below; about twice is a good default. [Gestalt proximity; Butterick, headings and space above and below; ratio `[reasoned]`]
 - Equal space above and below makes the heading float between two sections.
 
 ## Containers
 
 - A container's inner padding and the gap between containers follow the skip rule too. Padding 1rem → gap between cards at least 1.5rem, or 0 when the cards form one surface.
-- Content inside a container should sit closer to its own edges' group than to the neighbour. [Gestalt common region]
+- Content sits closer to its own container's edges than to the next container. [Gestalt common region]
 
 ## Borders do not replace space
 

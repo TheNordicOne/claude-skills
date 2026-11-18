@@ -20,20 +20,20 @@ Every interactive element must show what it is, what it is doing, and where focu
 
 - A faint background fill alone is too weak to carry a state. Add a second cue: a checkbox or check mark, a bar, an icon, a weight change. [WCAG 1.4.1, 1.4.11; NN/g visibility of system status]
 - Or make the fill strong enough to do the job alone: at least 3:1 against the unselected state. [WCAG 1.4.11]
-- Selected/current states use the action colour (see [colour.md](colour.md)).
+- For the colour of selected/current states, see [colour.md](colour.md).
 
 ## Focus
 
 - Every focusable element shows a visible focus indicator. [WCAG 2.4.7]
 - Focused elements are not hidden behind sticky headers, footers or overlays. [WCAG 2.4.11]
-- Aim for a strong indicator: at least a 2px outline-equivalent area with 3:1 change of contrast. [WCAG 2.4.13]
+- Aim for a strong indicator: at least a 2px outline-equivalent area with 3:1 change of contrast. [WCAG 2.4.13 (AAA)]
 - Use `:focus-visible`, so mouse users are not distracted and keyboard users always see focus.
 - One focus style across the system.
 
 ## Target size
 
 - Pointer targets at least 24 × 24 CSS px, or with enough spacing around them. [WCAG 2.5.8]
-- Aim higher (about 44px) for primary touch targets. [WCAG 2.5.5; Material]
+- Aim higher (about 44px) for primary touch targets. [WCAG 2.5.5 (AAA)]
 
 ## Disabled
 

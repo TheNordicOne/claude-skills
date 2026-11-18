@@ -8,6 +8,8 @@ Let content and available space decide the layout. Sources in brackets, listed i
 - Breakpoints and container queries
 - Widths
 - Reflow
+- Placement order of dynamic parts
+- Fixed parts never hide
 - Review checks
 
 ## Intrinsic first
@@ -35,9 +37,26 @@ In order of preference: [Jen Simmons, intrinsic web design; Every Layout]
 
 - Content works at 320 CSS px wide (400 % zoom) without two-dimensional scrolling, except for content that needs two dimensions (tables, maps). [WCAG 1.4.10]
 
+## Placement order of dynamic parts
+
+Parts that not every item or view has (badges, extra actions, optional meta) are ordered by how stable they are, counted from the edge the group is aligned to. `[reasoned]` from [Gestalt similarity; NN/g consistency and standards]
+
+- Start-aligned: always there → most → some → rarest.
+- End-aligned: rarest → … → always there, so the always-there part sits at the very end.
+- The same spot then always holds the same kind of thing, rows stay steady, and differences are easy to scan.
+- Applies to list rows, bars and toolbars, also across the views of one page.
+
+## Fixed parts never hide
+
+- Primary UI elements stay visible when their content is missing: tabs, main controls, a list's toolbar (search, sort, filter), its head and columns. They show an empty state, or a disabled control with a short reason. [NN/g empty states; `[reasoned]`]
+- Secondary information may stay hidden when empty.
+- Why: the layout stays stable; nothing moves between the empty and the filled view. [web.dev CLS]
+
 ## Review checks
 
 - Could wrapping or auto-fit replace a breakpoint?
 - Are minimums derived from content?
 - Is every breakpoint from the small named set, and does each switch structure?
 - Does anything need horizontal scrolling at 320px?
+- Are optional parts ordered by stability from the aligned edge?
+- Does any primary part disappear when its content is empty?
