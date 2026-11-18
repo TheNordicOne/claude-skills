@@ -18,6 +18,12 @@ Rules for Angular v20+ component development. For signals see angular-signals, f
 - Forms: prefer Signal Forms (`@angular/forms/signals`), then Reactive, then Template-driven
 - Keep components small and focused on a single responsibility
 
+## Reuse Shared Components
+
+- If a shared component exists for a job, every feature uses it. Never hand-roll the same component again.
+- If the shared component lacks something, extend the shared one instead of making a local copy.
+- A local variant with different behaviour for the same job is the worst case: users meet two behaviours for one thing, and fixes land in only one of them.
+
 ## Inputs, Outputs & Queries
 
 - **Use `input()` and `output()` functions** — never `@Input`/`@Output` decorators
