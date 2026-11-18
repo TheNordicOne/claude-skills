@@ -55,10 +55,10 @@ Send the implementer back with the findings; review again until clean.
 
 - One agent owns the external copy of the design system (a published style guide, a design-tool file). Others never edit it.
 - That agent re-reads the artifact right before changing it.
-- Publish once, at the end, with all decisions in.
+- Publish once, at the end, with all decisions and every "external copy pending" fix in.
 
 ## Finish
 
 - The owner checks every visible change before the work counts as done. Bundle these checks at the end.
 - Mark each finding **Implemented** in the doc.
-- Exactly one worktree is left: the review branch's, or none if it was merged by the owner's rule. No leftover branches, worktrees or backups.
+- Exactly one review worktree remains (plus the main checkout). Unit worktrees, unit branches and backups are removed.

@@ -25,7 +25,7 @@ The briefing settles everything the later phases need. Until the owner confirms 
 - Are there copies that must stay in sync (for example a token file and a published style guide)?
 
 **Scope**
-- Which foundations are in scope? Default: spacing, typography, colour, layout and widths, sizes, elevation, motion, focus and states.
+- Which foundations are in scope? Default: spacing, typography, colour, layout, sizes, states and focus, motion, elevation.
 - Components are out of scope unless the owner adds them.
 - Themes and modes to cover (light, dark, high contrast).
 
@@ -37,7 +37,7 @@ The briefing settles everything the later phases need. Until the owner confirms 
 - Who may publish external artifacts, and their limits (publishes per day, review steps). Default: batch all changes and publish once at the end.
 
 **Findings doc**
-- Where it lives. Default: a file in the repo that is git-ignored via `.git/info/exclude`, never committed.
+- Where it lives. Default: a file in the repo that is git-ignored through the local exclude file, never committed.
 
 **Workspace**
 - One worktree or branch for all review work. Ask where worktrees go if the repo has no convention.
@@ -49,5 +49,5 @@ After all questions, write a summary of five to eight lines: sources and precede
 ## Setup after confirmation
 
 1. Create the review worktree/branch.
-2. Create the findings doc from [findings-doc.md](findings-doc.md) and add it to `.git/info/exclude`.
+2. Create the findings doc from [findings-doc.md](findings-doc.md) and add it to the file `git rev-parse --git-path info/exclude` prints (this also works in linked worktrees, where `.git` is a file).
 3. Fill the doc's header (sources, precedence, scope, fix places).

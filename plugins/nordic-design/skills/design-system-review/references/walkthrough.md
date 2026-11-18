@@ -11,7 +11,7 @@ The owner decides every Open finding and sees every Rejected and Fixed one. You 
 
 ## Format of one finding
 
-Write it as markdown in the reply, not inside a question tool. Short, plain sentences. Sizes in rem, not px.
+Write it as markdown in the reply, not inside a question tool. Short, plain sentences. Defaults the briefing can change: sizes in rem (px in brackets where it helps), no summaries of what the owner just said.
 
 ```markdown
 ## SP-03 Group gaps too close to item gaps
@@ -38,13 +38,13 @@ Order of the parts never changes: heading, problem, where users feel it, what wa
 - A question is not an order. Answer "why" questions; change nothing until asked.
 - When a finding points at a rule, propose fixing the rule, not only the place that exposed it.
 - Apply earlier decisions to every later finding. Say so: "Decision D1 already covers this; it becomes 1.5rem."
-- Never summarise back what the owner just said. Confirm only your own guesses, with one short question.
+- Confirm only your own guesses, with one short question.
 
 ## Rejected and Fixed findings
 
 - Present Rejected findings too, with your own view next to the verifier's.
 - Where the verifier was wrong, say so openly and treat the finding as Open.
-- Fixed findings: say what changed and where to look. The owner may still revert.
+- Fixed findings: say what changed and where to look. The owner approves or reverts each one.
 
 ## Recording decisions
 

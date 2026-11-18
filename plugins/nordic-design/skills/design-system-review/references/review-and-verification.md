@@ -9,6 +9,7 @@ Two separate agents. The reviewer finds; the verifier judges and fixes the safe 
 - Reviewer brief template
 - Verifier brief template
 - Verdict rules
+- Reviewing the verifier's fixes
 - When an agent cannot write files
 
 ## Finding fields
@@ -17,8 +18,8 @@ Every finding carries all of these. A finding missing one is incomplete, not wro
 
 | Field | Content |
 |---|---|
-| ID | Short and stable, e.g. `SP-03` (area prefix + number) |
-| Area | spacing, typography, colour, layout, sizes, elevation, motion, focus-states |
+| ID | Area prefix + number, e.g. `SP-03`. Prefixes: SP spacing, TY typography, CO colour, LA layout, SZ sizes, SF states and focus, MO motion, EL elevation |
+| Area | One of: spacing, typography, colour, layout, sizes, states and focus, motion, elevation |
 | Rule | The design-system rule quoted, with its source (file, section, token) |
 | Principle | The UI/UX principle broken, with a source from `ui-principles` |
 | Scenario | A concrete user moment where the problem is felt |
@@ -71,13 +72,13 @@ Do not ask the owner anything. Return the complete findings doc as
 text in your final message.
 ```
 
-Pick a capable model for the verifier; its judgment decides what the owner sees.
+The verifier agent runs on a capable model by default (set in its frontmatter); its judgment decides what the owner sees.
 
 ## Verdict rules
 
 | Verdict | When |
 |---|---|
-| **Fixed** | True, a foundation issue, and the fix restores documented intent without changing the look the owner chose. Fixed in every fix place. |
+| **Fixed** | True, a foundation issue, and the fix restores documented intent without changing the look the owner chose. Fixed in every fix place the verifier may touch; an external copy is marked "external copy pending" and lands with the final publish. |
 | **Open** | True, but fixing it changes intent or the look, or the intent is unclear. Gets two or three options and one recommendation. |
 | **Rejected** | Not true, not a foundation issue, or the current state has a documented reason or owner decision. The reason is written down with its evidence. |
 
@@ -86,6 +87,10 @@ Checks before any verdict:
 - Is it really a foundation issue, or a component one?
 - Is there a reason for the current state? Search docs, notes, git history (`git log -S`, `git blame`), comments.
 - Does it repeat a known rule from `ui-principles` that says this is fine (e.g. line length for short UI text)?
+
+## Reviewing the verifier's fixes
+
+The verifier judges its own fixes, so they get the same independent check as Phase 5 changes. Before the walkthrough, a fresh reviewer gets each Fixed finding's text and its commit diff, nothing else, and reports any fix that changes intent or the look, or misses a fix place. Such a fix is reverted and the finding becomes Open.
 
 ## When an agent cannot write files
 
