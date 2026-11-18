@@ -24,7 +24,7 @@ Follow all loaded skills exactly.
 - **Keyboard** — anything operable by mouse but not keyboard; keyboard traps; custom widgets missing expected key handling (Esc, arrows, Enter/Space); positive `tabindex`; focus order that doesn't match visual order.
 - **Focus management** — focus lost or stranded after a modal opens/closes, route change, or content insertion; focus not moved to new/error content; no visible focus indicator.
 - **Names & roles** — icon-only controls with no accessible name; inputs with no associated `<label>` (placeholder is not a label); `aria-*` that's wrong, redundant, or contradicts the native semantics; images missing meaningful `alt` (or decorative images not hidden).
-- **State & feedback** — errors/status conveyed by color alone or by a transient toast a screen reader never announces; dynamic changes with no live-region; disabled state with no explanation.
+- **State & feedback** — errors/status conveyed by color alone or by a transient toast a screen reader never announces; dynamic changes with no live-region; disabled controls outside the two allowed cases.
 - **Targets & contrast** — touch targets too small; text/UI contrast likely below WCAG thresholds (flag for verification).
 
 Prefer verifying against the WCAG success criterion the finding maps to; you may inspect the rendered DOM or run an a11y check where cheap, but reason-and-flag (PLAUSIBLE) is fine when running isn't. Never edit source. If the markup is genuinely accessible, say so and note what you checked.

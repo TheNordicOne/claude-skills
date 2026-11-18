@@ -51,8 +51,8 @@ Treat this as a priming lens, **not a closed checklist** — apply what fits the
 - **Avoid disabled controls** — a disabled control gives no feedback, usually cannot be focused, and leaves people guessing what is missing. Disabling is fine only when: (Smashing, disabled buttons; Cloudscape disabled states; Vivid, disabled buttons)
   1. the action is temporarily unavailable, for example it is already running or loading, or
   2. the person can make it available, and a visible reason next to the control says how.
-- **Use `aria-disabled`, not `disabled`** — the control stays focusable and, when used, says why nothing happens. (Smashing, disabled buttons; Vivid, disabled buttons)
-- **Hide what the person may never use** — a control blocked by permissions is hidden, not disabled. (Smashing, hidden vs disabled; Cloudscape disabled states)
+- **Use `aria-disabled`, not `disabled`** — the control stays focusable, and the code ignores activation and shows the reason instead. (Smashing, disabled buttons)
+- **Hide what the person can never use** — a control blocked by permissions is hidden, not disabled. (Smashing, hidden vs disabled)
 - **Forms validate on submit** — keep the submit button usable and show errors on submit, instead of blocking it until the form is valid. (Smashing, disabled buttons; Vivid, disabled buttons)
 - **Option labels are positive and conventional** — name what an option does ("Show archived"), and carry on/off state through a switch or checkbox. No "not"/"without" labels; negated labels create double negatives when switched off. (NN/g toggle switches; deceptive.design trick wording)
 
