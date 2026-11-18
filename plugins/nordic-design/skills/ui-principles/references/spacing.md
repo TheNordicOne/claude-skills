@@ -27,7 +27,7 @@ Space is the primary grouping tool. Things close together read as one group; spa
 
 ## Between groups vs inside groups
 
-- Space between groups is clearly bigger than space inside a group. [Gestalt proximity; Laws of UX: Law of Proximity]
+- Space between groups is clearly bigger than space inside a group. [Gestalt proximity; Laws of UX: Law of Proximity; NN/g white space in form design]
 - Never squeeze the between-group space and compensate with borders, rules or backgrounds. [NN/g proximity; Material dividers]
 
 ## Headings

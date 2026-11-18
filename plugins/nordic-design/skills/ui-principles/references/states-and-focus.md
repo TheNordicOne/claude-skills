@@ -18,7 +18,7 @@ Every interactive element must show what it is, what it is doing, and where focu
 
 ## A second cue for every state
 
-- A faint background fill alone is too weak to carry a state. Add a second cue: a checkbox or check mark, a bar, an icon, a weight change. [WCAG 1.4.1, 1.4.11; NN/g visibility of system status]
+- A faint background fill alone is too weak to carry a state. Add a second cue: a checkbox or check mark, a bar, an icon, a weight change. [WCAG 1.4.1, 1.4.11; NN/g visibility of system status; NN/g toggle switch guidelines]
 - Or make the fill strong enough to do the job alone: at least 3:1 against the unselected state. [WCAG 1.4.11]
 - For the colour of selected/current states, see [colour.md](colour.md).
 

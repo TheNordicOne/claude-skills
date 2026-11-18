@@ -30,7 +30,7 @@ Type carries hierarchy and readability. Sources in brackets, listed in [sources.
 - Fluid scales interpolate between a small-screen and a large-screen scale with `clamp()`. [Utopia; Smashing, modern fluid typography]
 - On small screens the ratio is smaller on purpose, so levels move closer together. That is not a defect.
 - Only levels that actually stack (appear next to each other, for example h2 above h3) must stay distinguishable at every width.
-- Fluid sizes must still respond to user zoom: combine rem with viewport units, never pure `vw`. [WCAG 1.4.4; Smashing, modern fluid typography]
+- Fluid sizes must still respond to user zoom: combine rem with viewport units, never pure `vw`. [WCAG 1.4.4; Smashing, modern fluid typography; web.dev fluid type that respects user font size]
 
 ## Line length
 

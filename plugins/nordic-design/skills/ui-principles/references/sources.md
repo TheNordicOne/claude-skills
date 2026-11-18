@@ -35,7 +35,6 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Atlassian spacing — https://atlassian.design/foundations/spacing
 - Material layout spacing — https://m3.material.io/foundations/layout/understanding-layout/spacing
 - Material dividers — https://m3.material.io/components/divider/guidelines
-- Design Tokens Community Group format 2025.10 — https://www.designtokens.org/tr/2025.10/format/
 - NN/g white space in form design — https://www.nngroup.com/articles/form-design-white-space/
 
 **Typography**
@@ -65,7 +64,7 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - APCA — https://github.com/Myndex/apca-w3
 
 **Layout**
-- Jen Simmons, intrinsic web design ("Everything You Know About Web Design Just Changed") — https://www.youtube.com/watch?v=jBwBACbRuGY · demos: https://labs.jensimmons.com/
+- Jen Simmons, intrinsic web design ("Everything You Know About Web Design Just Changed") — https://www.youtube.com/watch?v=jBwBACbRuGY · examples: https://labs.jensimmons.com/
 - Every Layout axioms — https://every-layout.dev/rudiments/axioms/
 - Every Layout Switcher, Sidebar, Cluster — https://every-layout.dev/layouts/switcher/ · https://every-layout.dev/layouts/sidebar/ · https://every-layout.dev/layouts/cluster/
 - MDN repeat() / auto-fit — https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
