@@ -57,6 +57,7 @@ Use the first selector that expresses intent:
 - **No DOM scans**: `querySelectorAll(...).find(...)` — never scan and filter
 - **No deep CSS selectors**: `.a > .b > .c` — tests must not break on layout changes
 - **No test knows a CSS class**: no class selectors (`.btn-primary`) and no class assertions (`toHaveClass`). When removing class assertions, replace class-based lookups with semantic selectors — don't just delete them.
+  - Only edge case: markup of third-party code you don't control that offers no semantic or otherwise reliable hook. Never for your own code.
 - **No structural lookups**: `querySelector`, `closest`, element/component tag names, CSS locators
 - If an element can't be reached semantically, the UI usually lacks accessibility (a missing name or role). Fix the UI, don't work around it in the test.
 
