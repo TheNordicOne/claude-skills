@@ -15,6 +15,24 @@ license: MIT
 - **Centering a single item:** Flexbox is fine
 - Use `subgrid` when children need to align with a parent grid
 
+## Intrinsic Layout First
+
+Let content and available space decide the layout. Reach for a breakpoint only when the structure itself must change. In order of preference:
+
+1. **Wrapping, no query.** A row that only needs to stack when it runs out of room (button rows, "from / to" pairs, label beside value, toolbars) wraps on its own:
+   - single-axis rows: Flexbox with `flex-wrap: wrap`
+   - equal items: `grid-template-columns: repeat(auto-fit, minmax(min(100%, <item min>), 1fr))`
+   - `<item min>` is the smallest size one item needs, taken from its content (e.g. a date field) — never a page or device width
+2. **Fluid values, no query.** Sizes that should grow smoothly (headings, page padding) use `clamp()` with container units (`cqi`) instead of jumping at a breakpoint.
+3. **Container queries for structural switches only.** A side column appearing, a table turning into cards, a two-column record layout. Never media queries for component layout.
+
+### Breakpoints
+
+- **Content-driven:** a breakpoint sits where the content actually breaks, never at a device width.
+- **One small named set per project**, documented in the design system with the job of each value. Use only those values; never invent a new one or a near-duplicate (24rem next to 26rem).
+- Custom properties do not work inside `@container` conditions, so the set cannot be a token: document it and enforce it with lint.
+- A container query that only stacks a row is a smell — make the row wrap instead.
+
 ## Logical Properties
 
 **ALWAYS use CSS logical properties.** Physical directional properties are forbidden.
