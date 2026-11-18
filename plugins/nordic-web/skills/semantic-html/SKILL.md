@@ -34,6 +34,10 @@ Use elements for their meaning, not their appearance. Prefer native HTML over AR
 
 Provide a skip link as the first focusable element: `<a href="#main-content" class="skip-link">Skip to main content</a>`
 
+## Native Elements First
+
+Use the native HTML element wherever it can do the job — `<dialog>`, `popover`, `<details>`, `<search>`, `<input type="time">`/`"date"`/`"color"`, `<select>`, `<progress>`, `<meter>` — before building a custom widget. Native elements bring keyboard handling, focus management and accessibility semantics for free; a custom widget must rebuild all of it. Build custom only when the native element provably cannot meet the requirement, and say which requirement.
+
 ## Modern HTML (Baseline 2024)
 
 ### `<dialog>` — Modals
