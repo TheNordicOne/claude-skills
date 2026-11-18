@@ -49,8 +49,7 @@ Parts that not every item or view has (badges, extra actions, optional meta) are
 ## Fixed parts stay visible
 
 - Primary UI elements stay visible and usable when their content is missing: tabs, main controls, a list's toolbar (search, sort, filter), its head and columns. They show an empty state. [NN/g empty states; `[reasoned]`]
-- Disabling one of them follows the rule in [states-and-focus.md](states-and-focus.md#disabled).
-- A control the person may never use, for example for lack of permission, is hidden, not disabled. [Smashing, hidden vs disabled; Cloudscape disabled states]
+- Disabling or hiding one of them follows the rule in [states-and-focus.md](states-and-focus.md#disabled).
 - Secondary information may stay hidden when empty.
 - Why: the layout stays stable; nothing moves between the empty and the filled view. [web.dev Cumulative Layout Shift]
 

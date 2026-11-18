@@ -46,7 +46,8 @@ Rules for the foundations every screen is built on. Each rule has a source in [r
 - **Layout:** intrinsic first; breakpoints only for structural switches, from a small content-driven set. Dynamic parts are ordered by stability from the aligned edge; fixed parts stay visible and usable.
 - **Colour:** selected and current states use the action colour (`[reasoned]`). Contrast is computed, never estimated.
 - **States** need a second cue beyond a faint fill.
-- **Disabled** only while an action is running or with a visible reason how to enable it; controls the person may never use are hidden.
+- **Disabled** only while an action is temporarily unavailable (running, loading) or with a visible reason how to make it available; controls the person can never use are hidden.
+- **Sizes:** no fixed width or height; content and context decide within minimums, maximums or `clamp()`. Control heights are minimums.
 - **Motion:** reduced motion removes movement, not delays.
 - **Edges:** faint edges on non-interactive containers are a valid choice when spacing carries the grouping.
 
