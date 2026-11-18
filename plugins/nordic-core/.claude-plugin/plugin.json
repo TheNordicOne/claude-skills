@@ -1,6 +1,6 @@
 {
   "name": "nordic-core",
-  "description": "Shared brutal-review methodology, required by every nordic reviewer agent, and the shared-parts principle.",
+  "description": "Shared brutal-review methodology (required by every nordic reviewer agent) and the shared-parts principle.",
   "author": {
     "name": "Alexander Pahn"
   },

@@ -8,7 +8,7 @@
     {
       "name": "nordic-core",
       "source": "./plugins/nordic-core",
-      "description": "Shared brutal-review methodology, required by every nordic reviewer agent, and the shared-parts principle."
+      "description": "Shared brutal-review methodology (required by every nordic reviewer agent) and the shared-parts principle."
     },
     {
       "name": "nordic-css",
