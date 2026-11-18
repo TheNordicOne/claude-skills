@@ -26,6 +26,11 @@
       "description": "Accessibility, semantic HTML, and UX review skills, plus the a11y-reviewer and ux-reviewer agents."
     },
     {
+      "name": "nordic-design",
+      "source": "./plugins/nordic-design",
+      "description": "UI foundations principles and a design-system review process, plus the design-system-reviewer and finding-verifier agents."
+    },
+    {
       "name": "nordic-ts",
       "source": "./plugins/nordic-ts",
       "description": "TypeScript style and type-safety skill, plus the typescript-reviewer and general-reviewer agents."

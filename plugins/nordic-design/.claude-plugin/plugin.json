@@ -1,0 +1,9 @@
+{
+  "name": "nordic-design",
+  "description": "UI foundations principles and a design-system review process, plus the design-system-reviewer and finding-verifier agents.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alexander Pahn"
+  },
+  "license": "MIT"
+}
