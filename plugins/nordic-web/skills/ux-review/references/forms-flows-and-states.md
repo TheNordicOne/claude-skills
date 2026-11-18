@@ -45,6 +45,11 @@ Treat this as a priming lens, **not a closed checklist** — apply what fits the
 
 ## Loading / empty / error states
 - **Every async view has explicit loading, empty, AND error states** — components rendering only the populated state read as broken when empty and hang when a request fails. Provide skeleton/spinner while fetching, a first-run empty state with a next action, and inline error+retry on failure.
+- **Undrawn states follow the product's existing patterns** — when a design shows no loading, error or empty state, reuse the product's existing pattern for it; never invent a new one. (NN/g consistency and standards)
+
+## Controls and option labels
+- **Disable controls rarely** — leave a control usable and, when it is used, say why nothing happens and what would help. A disabled control explains nothing and usually cannot be focused. (Smashing, disabled buttons)
+- **Option labels are positive and conventional** — name what an option does ("Show archived"), and carry on/off state through a switch or checkbox. No "not"/"without" labels; negated labels create double negatives when switched off. (NN/g toggle switches; deceptive.design trick wording)
 
 ## Mobile touch targets
 - **≥24×24 CSS px, or ≥24px spacing** (WCAG 2.2 SC 2.5.8 AA); aim for 44×44 (SC 2.5.5 AAA / Apple HIG 44pt / Material 48dp). Flag icon buttons, checkboxes, "×", pagination, dense link lists below this. Exemptions: inline-in-text links, browser-controlled, legally-required sizing. (W3C WCAG 2.2)

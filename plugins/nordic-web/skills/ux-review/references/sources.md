@@ -20,6 +20,8 @@ All checklist entries in this skill are paraphrased from the sources below. When
 - https://www.nngroup.com/articles/confirmation-dialog/
 - https://www.nngroup.com/articles/deceptive-patterns/
 - https://www.nngroup.com/articles/genui-vs-vibe/
+- https://www.nngroup.com/articles/consistency-and-standards/
+- https://www.nngroup.com/articles/toggle-switch-guidelines/
 
 **Laws of UX** — https://lawsofux.com/ (individual laws linked in usability-heuristics.md)
 

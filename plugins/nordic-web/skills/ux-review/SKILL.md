@@ -33,7 +33,7 @@ Then apply the usability and form/flow heuristics (see references) for depth.
 - **Then the dark-patterns sweep** — short, and a compliance issue (EU DSA Art. 25, US FTC, CA CPPA), not only UX.
 - **Then, for depth**, pull the reference files as the diff warrants:
   - `references/usability-heuristics.md` — Nielsen's 10 heuristics + Laws of UX, rendered as observable checks (hierarchy, feedback, target size, memory load, progress).
-  - `references/forms-flows-and-states.md` — empirical form, validation, error-recovery, navigation, search, and loading/empty/error-state rules (Baymard / GOV.UK / WCAG).
+  - `references/forms-flows-and-states.md` — empirical form, validation, error-recovery, navigation, search, loading/empty/error-state, disabled-control and option-label rules (Baymard / GOV.UK / WCAG / NN/g).
   - `references/sources.md` — full source list and licensing/attribution.
 - **For foundation-level rules** (spacing, type, colour, layout), use the `nordic-design:ui-principles` skill.
 - **Cite the criterion.** A finding grounded in a WCAG success criterion or a named source is worth far more than unsourced taste — name it.
