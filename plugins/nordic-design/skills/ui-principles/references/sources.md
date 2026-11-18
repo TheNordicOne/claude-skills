@@ -23,7 +23,7 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Laws of UX: Law of Common Region — https://lawsofux.com/law-of-common-region/
 - Laws of UX: Law of Similarity — https://lawsofux.com/law-of-similarity/
 - NN/g visual hierarchy — https://www.nngroup.com/articles/visual-hierarchy-ux-definition/
-- NN/g flat design signifiers — https://www.nngroup.com/articles/flat-ui-less-attention-cause-uncertainty/
+- NN/g flat design signifiers — https://www.nngroup.com/articles/flat-ui-less-attention-cause-uncertainty/ · https://www.nngroup.com/articles/flat-design/
 - NN/g visibility of system status (heuristic 1) — https://www.nngroup.com/articles/ten-usability-heuristics/
 
 **Spacing systems**
@@ -31,7 +31,8 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Atlassian spacing — https://atlassian.design/foundations/spacing
 - Material layout spacing — https://m3.material.io/foundations/layout/understanding-layout/spacing
 - Material dividers — https://m3.material.io/components/divider/guidelines
-- Design Tokens Community Group format — https://www.designtokens.org/tr/drafts/format/
+- Design Tokens Community Group format, first stable version 2025.10 — https://www.designtokens.org/tr/2025.10/format/
+- NN/g white space in form design — https://www.nngroup.com/articles/form-design-white-space/
 
 **Typography**
 - Butterick, line length — https://practicaltypography.com/line-length.html
@@ -40,7 +41,8 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Butterick, line spacing — https://practicaltypography.com/line-spacing.html
 - Baymard line length — https://baymard.com/blog/line-length-readability
 - Utopia, fluid type scales — https://utopia.fyi/blog/designing-with-fluid-type-scales/
-- Smashing, modern fluid typography — https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
+- Smashing, modern fluid typography (clamp() and 200 % zoom) — https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
+- web.dev fluid type that respects user font size — https://web.dev/articles/baseline-in-action-fluid-type
 - Material type scale — https://m3.material.io/styles/typography/type-scale-tokens
 - Carbon type — https://carbondesignsystem.com/elements/typography/type-sets/
 - W3C WAI headings tutorial — https://www.w3.org/WAI/tutorials/page-structure/headings/
@@ -53,7 +55,7 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - APCA — https://github.com/Myndex/apca-w3
 
 **Layout**
-- Jen Simmons, intrinsic web design ("Everything You Know About Web Design Just Changed") — https://www.youtube.com/watch?v=jBwBACbRuGY
+- Jen Simmons, intrinsic web design ("Everything You Know About Web Design Just Changed") — https://www.youtube.com/watch?v=jBwBACbRuGY · demos: https://labs.jensimmons.com/
 - Every Layout axioms — https://every-layout.dev/rudiments/axioms/
 - Every Layout Switcher, Sidebar, Cluster — https://every-layout.dev/layouts/switcher/ · https://every-layout.dev/layouts/sidebar/ · https://every-layout.dev/layouts/cluster/
 - MDN repeat() / auto-fit — https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
@@ -64,6 +66,8 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 
 **States and focus**
 - Material states — https://m3.material.io/foundations/interaction/states/overview
+- NN/g toggle switch guidelines (clear state) — https://www.nngroup.com/articles/toggle-switch-guidelines/
+- NN/g visibility of system status — https://www.nngroup.com/articles/visibility-system-status/
 
 **Motion**
 - NN/g animation duration — https://www.nngroup.com/articles/animation-duration/
