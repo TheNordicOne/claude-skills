@@ -11,13 +11,13 @@ Elevation tells the user what sits above what. Edges define surfaces. Sources in
 
 ## Elevation levels
 
-- Use a small set of levels with a job each: base surface, raised (cards), overlay (menus, popovers), modal (dialogs). [Material elevation; Atlassian elevation; Carbon layering]
+- Use a small set of levels with a job each: base surface, raised (cards), overlay (menus, popovers), modal (dialogs). [Material elevation; Atlassian elevation; Carbon colour and layering]
 - Higher means closer to the user and more important for the moment. Do not raise things for decoration.
 - Define levels as tokens (shadow and surface colour together).
 
 ## Edges and borders
 
-- Faint, unobtrusive edges on **non-interactive** containers can be a deliberate choice. When spacing carries the grouping, a faint edge is fine; do not demand stronger borders. [Gestalt proximity; Gestalt common region; `[reasoned]`]
+- Faint, unobtrusive edges on **non-interactive** containers can be a deliberate choice. When spacing carries the grouping, a faint edge is fine; do not demand stronger borders. [Gestalt proximity; Common region; `[reasoned]`]
 - Edges that identify a control (input fields, toggles) are different: they need 3:1 contrast, and weak signifiers on interactive elements cause uncertainty. [WCAG 1.4.11; NN/g flat design signifiers]
 - Prefer one cue per boundary: a shadow, a border or a surface change, not all three.
 

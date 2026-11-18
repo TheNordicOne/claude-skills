@@ -29,7 +29,6 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Laws of UX: Law of Similarity — https://lawsofux.com/law-of-similarity/
 - NN/g visual hierarchy — https://www.nngroup.com/articles/visual-hierarchy-ux-definition/
 - NN/g flat design signifiers — https://www.nngroup.com/articles/flat-ui-less-attention-cause-uncertainty/ · https://www.nngroup.com/articles/flat-design/
-- NN/g ten usability heuristics (1 visibility of system status, 4 consistency and standards) — https://www.nngroup.com/articles/ten-usability-heuristics/
 - Laws of UX: Jakob's Law — https://lawsofux.com/jakobs-law/
 - NN/g consistency and standards — https://www.nngroup.com/articles/consistency-and-standards/
 - NN/g empty states — https://www.nngroup.com/articles/empty-state-interface-design/
@@ -49,7 +48,7 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - Butterick, line spacing — https://practicaltypography.com/line-spacing.html
 - Baymard line length — https://baymard.com/blog/line-length-readability
 - Utopia, fluid type scales — https://utopia.fyi/blog/designing-with-fluid-type-scales/
-- Smashing, modern fluid typography (clamp() and 200 % zoom) — https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
+- Smashing, modern fluid typography — https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/ (clamp() and 200 % zoom)
 - web.dev fluid type that respects user font size — https://web.dev/articles/baseline-in-action-fluid-type
 - Material type scale — https://m3.material.io/styles/typography/type-scale-tokens
 - Carbon type — https://carbondesignsystem.com/elements/typography/type-sets/
@@ -69,24 +68,24 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - APCA — https://github.com/Myndex/apca-w3
 
 **Layout**
-- Jen Simmons, intrinsic web design ("Everything You Know About Web Design Just Changed") — https://www.youtube.com/watch?v=jBwBACbRuGY · examples: https://labs.jensimmons.com/
+- Jen Simmons, intrinsic web design — https://www.youtube.com/watch?v=jBwBACbRuGY · examples: https://labs.jensimmons.com/ ("Everything You Know About Web Design Just Changed")
 - Every Layout axioms — https://every-layout.dev/rudiments/axioms/
 - Every Layout Switcher, Sidebar, Cluster — https://every-layout.dev/layouts/switcher/ · https://every-layout.dev/layouts/sidebar/ · https://every-layout.dev/layouts/cluster/
 - MDN repeat() / auto-fit — https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
 - MDN container queries — https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries
 - web.dev learn grid — https://web.dev/learn/css/grid
-- web.dev responsive basics (content-driven breakpoints) — https://web.dev/articles/responsive-web-design-basics
-- web.dev new responsive (container queries) — https://web.dev/articles/new-responsive
+- web.dev responsive basics — https://web.dev/articles/responsive-web-design-basics (content-driven breakpoints)
+- web.dev new responsive — https://web.dev/articles/new-responsive (container queries)
 
 **States and focus**
 - Material states — https://m3.material.io/foundations/interaction/states/overview
-- NN/g toggle switch guidelines (clear state) — https://www.nngroup.com/articles/toggle-switch-guidelines/
+- NN/g toggle switch guidelines — https://www.nngroup.com/articles/toggle-switch-guidelines/ (clear state)
 - NN/g visibility of system status — https://www.nngroup.com/articles/visibility-system-status/
 
 **Motion**
 - NN/g animation duration — https://www.nngroup.com/articles/animation-duration/
 - NN/g timing of exposing content — https://www.nngroup.com/articles/timing-exposing-content/
-- NN/g mega menus (0.5 s hover delay) — https://www.nngroup.com/articles/mega-menus-work-well/
+- NN/g mega menus — https://www.nngroup.com/articles/mega-menus-work-well/ (0.5 s hover delay)
 - NN/g response time limits — https://www.nngroup.com/articles/response-times-3-important-limits/
 - Material easing and duration — https://m3.material.io/styles/motion/easing-and-duration/tokens-specs
 - Carbon motion — https://carbondesignsystem.com/elements/motion/overview/

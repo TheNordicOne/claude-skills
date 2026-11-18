@@ -34,7 +34,7 @@ Rules for the foundations every screen is built on. Each rule has a source in [r
 
 ## Consistency
 
-- Each kind of use case has one way to be handled. The same kind of list is never shown two ways; the same kind of interaction is never done two ways. [NN/g consistency and standards; Laws of UX, Jakob's Law]
+- Each kind of use case has one way to be handled. The same kind of list is never shown two ways; the same kind of interaction is never done two ways. [NN/g consistency and standards; Laws of UX: Jakob's Law]
 - Judge "the same kind" by intention, not by looks. Things that look or sound alike can serve different intentions and may need different designs. There is no blanket rule forcing everything down one path.
 
 ## The core rules at a glance
