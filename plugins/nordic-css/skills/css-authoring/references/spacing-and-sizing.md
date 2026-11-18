@@ -10,6 +10,16 @@ Space *between* elements and space *inside* an element are different jobs; don't
 
 ## Sizing — content-driven by default
 
-Let content determine size; don't hard-fix dimensions reflexively, and constrain only when there's a real reason — whether to constrain at all is situational. A fixed dimension is **not** inherently a smell: a fixed size can be exactly the intent, and the code alone doesn't tell you, so don't flag fixed sizing on sight.
+Let content and context decide size. Avoid a fixed `width`/`height` (`inline-size`/`block-size`): it clips longer text, breaks at zoom and larger font sizes, and ignores the space it sits in.
 
-When you do limit to a **range**, prefer `clamp()` — a fluid value between bounds in one declaration — over static `min`/`max` pairs or breakpoint jumps. But don't force it: a lone bound is fine when that's all you need, and most values, including most `font-size`, never need it.
+When a size needs a limit, set the limit, not the size:
+- **A floor** — `min-inline-size` / `min-block-size`, so the element can still grow with its content.
+- **A ceiling** — `max-inline-size` / `max-block-size`, so it can still shrink with its context.
+- **A fluid range** — `clamp()`, a value between bounds in one declaration, over `min`/`max` pairs or breakpoint jumps. Don't force it: a lone bound is fine when that's all you need, and most values, including most `font-size`, never need it.
+
+Legitimate fixed sizes are rare and are the element's own box, not a box for content:
+- icons and other fixed-ratio graphics (sized in `em`/`rem` so they follow the text)
+- a square control's own box, such as an icon button, checkbox or avatar
+- borders, dividers and focus rings
+
+Flag any other fixed width or height and ask what should decide the size instead.

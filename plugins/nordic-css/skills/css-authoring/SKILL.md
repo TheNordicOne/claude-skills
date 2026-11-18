@@ -30,7 +30,7 @@ Detail and examples for each area live in `references/` — pull the file you ne
 Choose the unit by the behaviour you want (`rem` for text so it respects user zoom; others by intent — no fixed table). Numbers come from a scale; a value shared *by meaning* becomes a custom property (one source of truth), a value that's really a *derivation* is computed with `calc`, and a genuine standalone constant is fine as-is — don't over-tokenize. `calc` is a yellow flag: great for a real relationship, a smell when it papers over structure. Scope a custom property where it's used and give sensible fallbacks.
 
 ### Spacing & sizing → `references/spacing-and-sizing.md`
-Space *between* elements is owned by the container (`gap`); *internal* space is `padding` on the element — different lanes. Size is content-driven by default; constrain only when warranted, and reach for `clamp()` when you want a fluid range. Fixed sizing is not a smell — intent decides.
+Space *between* elements is owned by the container (`gap`); *internal* space is `padding` on the element — different lanes. Size is content- and context-driven: avoid fixed width/height and set limits instead (`min-*`/`max-*` sizes, or `clamp()` for a fluid range). Icons and a square control's own box are the rare fixed exceptions.
 
 ### Selectors & specificity → `references/selectors-and-specificity.md`
 Keep specificity low and flat. Classes are the primary hook, but element, state (`:disabled`, `[aria-*]`), pseudo-element, and substring/attribute selectors are all legitimate where they fit. Don't style via `#id`, don't couple selectors to tag or DOM structure, and match the combinator to the real relationship. `!important` is a last resort with a required justifying comment.
