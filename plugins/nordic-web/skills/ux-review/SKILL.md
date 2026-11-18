@@ -35,6 +35,7 @@ Then apply the usability and form/flow heuristics (see references) for depth.
   - `references/usability-heuristics.md` — Nielsen's 10 heuristics + Laws of UX, rendered as observable checks (hierarchy, feedback, target size, memory load, progress).
   - `references/forms-flows-and-states.md` — empirical form, validation, error-recovery, navigation, search, and loading/empty/error-state rules (Baymard / GOV.UK / WCAG).
   - `references/sources.md` — full source list and licensing/attribution.
+- **For foundation-level rules** (spacing, type, colour, layout), use the `nordic-design:ui-principles` skill.
 - **Cite the criterion.** A finding grounded in a WCAG success criterion or a named source is worth far more than unsourced taste — name it.
 - **Severity guidance:** a control that doesn't work by keyboard/screen reader, data loss on error, or a manipulative pattern is High/Critical. Weak hierarchy or a missing accelerator is usually Medium/Low. Don't flood the report with preference-level notes.
 
