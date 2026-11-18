@@ -48,7 +48,7 @@ Parts that not every item or view has (badges, extra actions, optional meta) are
 
 ## Fixed parts never hide
 
-- Primary UI elements stay visible when their content is missing: tabs, main controls, a list's toolbar (search, sort, filter), its head and columns. They show an empty state, or a disabled control with a short reason. [NN/g empty states; `[reasoned]`]
+- Primary UI elements stay visible when their content is missing: tabs, main controls, a list's toolbar (search, sort, filter), its head and columns. They stay usable and show an empty state; disable a control only when using it is impossible, and say why. [NN/g empty states; `[reasoned]`]
 - Secondary information may stay hidden when empty.
 - Why: the layout stays stable; nothing moves between the empty and the filled view. [web.dev CLS]
 

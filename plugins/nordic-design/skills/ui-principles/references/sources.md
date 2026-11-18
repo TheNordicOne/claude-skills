@@ -2,6 +2,11 @@
 
 Every rule in this skill is paraphrased from the sources below; the short names in brackets in each reference file point here. When reporting a finding, cite the specific criterion or page. Rules tagged `[reasoned]` in the reference files are derived from the cited principles rather than stated by a source: the skip rule's step arithmetic, the "about twice" heading ratio, one definition per heading level, the 1rem body-text floor, the action colour for selected states, faint edges on non-interactive containers, delays vs motion, the placement order of dynamic parts, fixed parts never hiding, and the size rules marked so. Say so when citing them.
 
+## Contents
+
+- Licensing summary
+- Source index: Gestalt and hierarchy, spacing systems, typography, sizes, colour, layout, states and focus, motion, elevation, WCAG 2.2
+
 ## Licensing summary
 
 | Source | Terms | Obligation |
@@ -52,7 +57,7 @@ Every rule in this skill is paraphrased from the sources below; the short names 
 - MDN heading elements — https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements
 
 **Sizes**
-- Carbon icon sizes — https://carbondesignsystem.com/elements/icons/usage/
+- Carbon icon sizes — https://www.carbondesignsystem.com/building-blocks/foundations/icons/guidelines
 - Material corner radius scale — https://m3.material.io/styles/shape/corner-radius-scale
 - Atlassian radius tokens — https://atlassian.design/foundations/radius
 - Atlassian border tokens — https://atlassian.design/foundations/border

@@ -44,7 +44,8 @@ Scope: <areas>. Components are out of scope.
 Themes/modes: <list>
 Known recurring problems to look at harder: <list or "none">
 
-Load nordic-design:ui-principles. Recompute every number yourself.
+ui-principles is preloaded; read its reference for every area in scope.
+Recompute every number yourself.
 Report drift between sources as drift findings without judging them.
 Return all findings with these fields: ID, Area, Rule (quoted + source),
 Principle (+ source), Scenario, Evidence (numbers), Severity, Confidence,
