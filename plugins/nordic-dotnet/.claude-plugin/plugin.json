@@ -1,0 +1,8 @@
+{
+  "name": "nordic-dotnet",
+  "description": "C# / .NET conventions skill for writing backend code correctly from the start.",
+  "author": {
+    "name": "Alexander Pahn"
+  },
+  "license": "MIT"
+}

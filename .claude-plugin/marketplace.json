@@ -6,6 +6,11 @@
   "description": "Opinionated skills and brutal reviewer agents for TypeScript, Angular, CSS, accessibility, UX, and engineering workflow.",
   "plugins": [
     {
+      "name": "nordic-angular",
+      "source": "./plugins/nordic-angular",
+      "description": "Angular components, services, signals, tests, and ESLint skills, plus the angular-reviewer agent."
+    },
+    {
       "name": "nordic-core",
       "source": "./plugins/nordic-core",
       "description": "Shared brutal-review methodology (required by every nordic reviewer agent) and the shared-parts principle."
@@ -16,24 +21,24 @@
       "description": "CSS authoring, modern features, and layout skills, plus the css-reviewer agent."
     },
     {
-      "name": "nordic-angular",
-      "source": "./plugins/nordic-angular",
-      "description": "Angular components, services, signals, tests, and ESLint skills, plus the angular-reviewer agent."
-    },
-    {
-      "name": "nordic-web",
-      "source": "./plugins/nordic-web",
-      "description": "Accessibility, semantic HTML, and UX review skills, plus the a11y-reviewer and ux-reviewer agents."
-    },
-    {
       "name": "nordic-design",
       "source": "./plugins/nordic-design",
       "description": "UI foundations principles and a design-system review process, plus the design-system-reviewer and finding-verifier agents."
     },
     {
+      "name": "nordic-dotnet",
+      "source": "./plugins/nordic-dotnet",
+      "description": "C# / .NET conventions skill for writing backend code correctly from the start."
+    },
+    {
       "name": "nordic-ts",
       "source": "./plugins/nordic-ts",
       "description": "TypeScript style and type-safety skill, plus the typescript-reviewer and general-reviewer agents."
+    },
+    {
+      "name": "nordic-web",
+      "source": "./plugins/nordic-web",
+      "description": "Accessibility, semantic HTML, and UX review skills, plus the a11y-reviewer and ux-reviewer agents."
     },
     {
       "name": "nordic-workflow",
