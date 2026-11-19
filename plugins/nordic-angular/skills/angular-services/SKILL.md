@@ -12,6 +12,7 @@ compatibility: Requires Angular 20+
 - Single responsibility per service
 - Use `inject()` function — never constructor injection
 - Implement lazy loading for feature routes
+- Time comes from one injected clock service (root-provided, in the shared kit): components and services never call `Date.now()` or `new Date()` without a value; tests provide a fake clock
 
 ## `providedIn` Strategy
 

@@ -73,7 +73,7 @@ Use the first selector that expresses intent:
 
 No test may depend on how fast the machine is or on the real clock.
 
-- **Code never reads the current time itself — production code included.** Every "now", every "today" and every timed wait goes through one injected clock that tests replace. Never construct the current date directly.
+- **Code never reads the current time itself.** This is how app code is written from the start (see the typescript skill's Time area), and what makes fake clocks possible in tests. Every "now", every "today" and every timed wait goes through one injected clock that tests replace. Never construct the current date directly.
   - .NET: inject the built-in `TimeProvider` (`GetUtcNow()`, `GetLocalNow()`, `Task.Delay(span, timeProvider)`, `CreateTimer`) and use `FakeTimeProvider` (Microsoft.Extensions.TimeProvider.Testing) in tests. Ban `DateTime.Now/UtcNow/Today` and `DateTimeOffset.Now/UtcNow` with the BannedApiAnalyzers.
   - TypeScript: inject a clock service instead of calling `Date.now()`, `new Date()` without a value or `performance.now()` in app code; lint bans those calls.
   - SQL: pass the time in as a parameter instead of using the database's `now()`, unless the value must be the database's own commit time; then document why.

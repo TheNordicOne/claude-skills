@@ -39,5 +39,8 @@ Generics to relate types (never a single-use type param), constrained with `exte
 ### Async & errors → `references/async-and-errors.md`
 No floating promises, `await` over `.then`, `Promise.all` for independent work; throw `Error` (or a subclass), and treat caught errors as `unknown`.
 
+### Time → `references/time.md`
+No code reads the current time itself: one injected clock for every "now", "today" and timed wait; `Date.now()`, `new Date()` without a value and `performance.now()` are banned in app code.
+
 ### Modules & naming → `references/modules-and-naming.md`
 Named exports over default, `import type` for type-only imports; descriptive names, no `I`/`T` prefixes.
