@@ -20,6 +20,8 @@ Critical rules for Angular's reactive primitives. Misuse of effects is the #1 so
 
 **NEVER set a signal inside an effect.** This creates circular dependencies and infinite loops.
 
+This includes **indirect** writes: an effect that calls a method, service or callback which then sets a signal is the same violation. Hiding the write behind a function call, `untracked()`, `queueMicrotask`/`setTimeout`, or `allowSignalWrites` is a hack, not a fix. Use what Angular provides instead: `computed()` for derived values, `linkedSignal()` for state that resets or follows a source, `resource()`/`rxResource()`/`httpResource()` for async loading, an `output()` or a direct call from the event handler (the user gesture) for things a person does, and `afterRenderEffect()` only for DOM work that writes no signal.
+
 ```typescript
 // FORBIDDEN — infinite loop
 effect(() => {
