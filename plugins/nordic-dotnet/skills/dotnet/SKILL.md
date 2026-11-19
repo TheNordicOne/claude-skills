@@ -28,3 +28,5 @@ The server never trusts the client: every frontend check is repeated by the rece
 ### Comments → `references/comments.md`
 Hard rule: a comment only says what the code cannot (why, constraints, non-obvious consequences). Never narrate the code; a paraphrasing comment is a smell and goes.
 
+### Cancellation → `references/cancellation.md`
+Every async path takes the caller's `CancellationToken` and passes it all the way down; a cancelled request is not an error.
