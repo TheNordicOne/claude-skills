@@ -1,8 +1,8 @@
 ---
 name: dotnet
 description: >
-  C# / .NET conventions for writing backend code correctly from the start. Currently covers time
-  (TimeProvider). Activate when editing any `.cs` file or .NET project.
+  C# / .NET conventions for writing backend code correctly from the start. Covers time
+  (TimeProvider) and input checking. Activate when editing any `.cs` file or .NET project.
 license: MIT
 compatibility: Requires .NET 8+
 ---
@@ -21,3 +21,6 @@ Rules for writing C# / .NET code correctly on the first draft. Detail for each a
 
 ### Time → `references/time.md`
 No code reads the current time itself: inject the built-in `TimeProvider` for every "now", "today" and timed wait; `DateTime.Now/UtcNow/Today` and `DateTimeOffset.Now/UtcNow` are banned by analyzer; SQL gets the time as a parameter instead of `now()`.
+
+### Input → `references/input.md`
+The server never trusts the client: every frontend check is repeated by the receiving action, input the UI could never send is refused, and every refusal is a clean 400 with a code, never a 500.
