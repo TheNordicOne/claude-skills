@@ -13,6 +13,7 @@ Critical rules for Angular's reactive primitives. Misuse of effects is the #1 so
 
 - **`signal()`** for local mutable state
 - **`computed()`** for any value derived from other signals — always the first choice for transformations
+- **`computed()` is pure.** It only derives and returns a value: no side effects of any kind (no writes to signals, fields, caches, maps, storage, DOM, no requests, no logging). A computed that fills a cache "harmlessly" is a violation; derive the cached objects as their own value instead.
 - **`set()` or `update()`** to modify signal values
 - Keep state transformations pure and predictable
 
