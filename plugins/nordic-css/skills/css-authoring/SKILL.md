@@ -43,3 +43,6 @@ Foundations (tokens, reset, base/typography) live at the global scope; component
 
 ### Authoring hygiene → `references/authoring-hygiene.md`
 Match shorthand/longhand to intent (shorthands reset omitted sub-properties; never `transition: all`). Don't restate values already in effect, including inherited ones. Animate cheap properties (`transform`/`opacity`) with tokenised durations, and use motion sparingly and subtly. Avoid inline styles except to pass a dynamic value in as a custom property.
+
+### Comments
+Hard rule: a CSS comment only says what the rules cannot (why a value, a browser bug, a design-system reason). Never narrate what a rule does.

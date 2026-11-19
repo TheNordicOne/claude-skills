@@ -42,5 +42,8 @@ No floating promises, `await` over `.then`, `Promise.all` for independent work; 
 ### Time → `references/time.md`
 No code reads the current time itself: one injected clock for every "now", "today" and timed wait; `Date.now()`, `new Date()` without a value and `performance.now()` are banned in app code.
 
+### Comments → `references/comments.md`
+Hard rule: a comment only says what the code cannot (why, constraints, non-obvious consequences). Never narrate the code; a paraphrasing comment is a smell and goes.
+
 ### Modules & naming → `references/modules-and-naming.md`
 Named exports over default, `import type` for type-only imports; descriptive names, no `I`/`T` prefixes.

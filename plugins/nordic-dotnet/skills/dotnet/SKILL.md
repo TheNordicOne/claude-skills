@@ -24,3 +24,7 @@ No code reads the current time itself: inject the built-in `TimeProvider` for ev
 
 ### Input → `references/input.md`
 The server never trusts the client: every frontend check is repeated by the receiving action, input the UI could never send is refused, and every refusal is a clean 400 with a code, never a 500.
+
+### Comments → `references/comments.md`
+Hard rule: a comment only says what the code cannot (why, constraints, non-obvious consequences). Never narrate the code; a paraphrasing comment is a smell and goes.
+

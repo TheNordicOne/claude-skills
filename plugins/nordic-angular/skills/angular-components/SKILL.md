@@ -69,3 +69,6 @@ Rules for Angular v20+ component development. For signals see angular-signals, f
 - Name handlers for the **action** they perform, not the triggering event
 - **Never start handler names with "handle"** — use `saveUser()` or `onSave()`, not `handleClick()`
 - Keep lifecycle hooks simple; delegate complex logic to well-named helper methods
+
+## Template comments
+Hard rule: a template comment only says what the markup cannot (why, a constraint). Never narrate the markup (see the typescript skill's Comments area).
