@@ -2,7 +2,8 @@
 name: dotnet
 description: >
   C# / .NET conventions for writing backend code correctly from the start. Covers time
-  (TimeProvider) and input checking. Activate when editing any `.cs` file or .NET project.
+  (TimeProvider), input checking, comments, cancellation and code structure (single-responsibility
+  classes, extensions over static helpers, no new dependencies without approval). Activate when editing any `.cs` file or .NET project.
 license: MIT
 compatibility: Requires .NET 8+
 ---
@@ -30,3 +31,6 @@ Hard rule: a comment only says what the code cannot (why, constraints, non-obvio
 
 ### Cancellation → `references/cancellation.md`
 Every async path takes the caller's `CancellationToken` and passes it all the way down; a cancelled request is not an error.
+
+### Structure → `references/structure.md`
+One class, one job; no `partial` god classes; helpers on one type are extension methods, not plain static classes; no new dependency without the owner's yes; EF Core operations before raw SQL or extra libraries. Owner rules about structure mean the best practice, never the literal reading.
