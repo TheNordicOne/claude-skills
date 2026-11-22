@@ -13,6 +13,7 @@ license: MIT
 - Test the public API and rendered output — not private methods, internal signals, or class properties
 - If you refactor internals without changing behavior, tests should still pass
 - **The only acceptable coupling to implementation**: semantic selectors (they test the accessibility contract, which IS the public interface)
+- **Never bend the implementation to fit the tests.** If a test setup cannot handle the framework's intended way (e.g. Angular `resource()` registering pending tasks, a harness without fake timers), fix the test setup. Production code is never written around a test limitation; such reasoning in a review is a finding.
 
 ## Behaviour, Never Looks
 
