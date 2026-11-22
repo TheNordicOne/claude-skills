@@ -43,3 +43,4 @@ Always set `autocomplete` on identity and credential fields: `name`, `email`, `t
 - Connect error messages with `aria-describedby`
 - Use `role="alert"` or `aria-live="assertive"` on error containers for screen reader announcements
 - Group form-level errors in a summary linking to each invalid field
+- Never show an error on a field the person only passed through (focused and left without typing): an empty required field gets its error only on submit; check on blur only fields whose value changed. In Angular Signal Forms, `touched` alone is not enough to show an error.
