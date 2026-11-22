@@ -33,6 +33,14 @@ Let content and available space decide the layout. Reach for a breakpoint only w
 - Custom properties do not work inside `@container` conditions, so the set cannot be a token: document it and enforce it with lint.
 - A container query that only stacks a row is a smell — make the row wrap instead.
 
+## One Markup, CSS Does the Whole Layout
+
+A view keeps **one semantic HTML structure at every width**; CSS (container queries first) does the entire layout change, e.g. a week as a time grid or as day cards is the same "per day a list of dates", laid out differently.
+
+- No second markup switched by code, and no code that reads a CSS variable or measures a size to pick a template, unless the content's **semantics** truly differ between the layouts; state that reason.
+- Screen readers get the same structure whatever the window width; resizing never changes what is read.
+- Never render both variants and hide one with CSS.
+
 ## Logical Properties
 
 **ALWAYS use CSS logical properties.** Physical directional properties are forbidden.
