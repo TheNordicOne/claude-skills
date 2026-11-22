@@ -12,6 +12,9 @@ How classes, helpers and dependencies are shaped. Owner rules about code structu
 - Plain static classes taking that type as the first parameter (`Upserts.Save(db, ...)`) are not used where an extension fits.
 - Static classes stay only for pure rule functions with no natural receiver (calculations, parsing, validation rules); these are unit-tested directly.
 
+## Framework first
+- Before writing infrastructure code (streams, retries, caching, settings, serialization, hosting, rate limits, health checks, problem details), check what ASP.NET Core, EF Core and Microsoft.Extensions.* already provide, in the current version's docs. Use the built-in unless it truly cannot do the job; then say why, with evidence. Example: Server-Sent Events use `TypedResults.ServerSentEvents` (.NET 10) with our own `IAsyncEnumerable<SseItem<T>>`, not a hand-written writer.
+
 ## Dependencies
 - No new package (NuGet, npm, tool, container image) without the product owner's explicit yes. Propose it with what it is for, how much of it is used, and the alternatives (framework feature, a small own helper, plain code).
 - A package used for a single method is almost never worth it: write the small helper on top of the framework instead.
